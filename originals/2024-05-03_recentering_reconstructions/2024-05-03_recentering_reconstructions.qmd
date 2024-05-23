@@ -1,0 +1,34 @@
+---
+title: Plotting PALEOMAP Paleocoastlines with modified projection centers
+resource-path: ['../../../']
+bibliography: 'bibliography/evolved.bib'
+#title-block-banner: '../../../images/ocean_sea_water_seascape_nature_3840x2160.jpg' 
+author:
+  - name: Kocsis, Adam 
+    url: "../../../adam_kocsis.html" 
+toc: true
+categories: 
+- paleogeography
+resources:
+- R
+- sf
+- chronosphere(R)
+- PALEOMAP
+listing:
+  id: "resources"
+  template: ../../../templates/resources.ejs
+  contents: 
+  - ../../../data/resources.yml
+  include:
+    title: "{R,PALEOMAP,sf-1.75,chronosphere(R)}*" 
+---
+
+::: {#resources}
+:::
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Although the ``subsample()`` function was developed for estimating turnover rates and diversity changes over multiple time intervals, it was adapted to execute subsampling on single samples.

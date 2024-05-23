@@ -1,0 +1,88 @@
+- id: BioTIME 
+  long: BioTIME
+  website: https://biotime.st-andrews.ac.uk/
+  logo: images/logos/biotime_cent.png
+  description_short: A global database of modern assemblage time series for quantifying and understanding biodiversity change.
+  subcategory: modernocc 
+  organismal_scope: General
+  temporal_scope: '1850-2022'
+  spatial_scope: Global
+  citation:
+  - "Dornelas, M., Antão, L. H., Moyes, F., Bates, A. E., Magurran, A. E., Adam, D., Akhmetzhanova, A. A., Appeltans, W., Arcos, J. M., Arnold, H., Ayyappan, N., Badihi, G., Baird, A. H., Barbosa, M., Barreto, T. E., Bässler, C., Bellgrove, A., Belmaker, J., Benedetti‐Cecchi, L., et al. (2018). BioTIME: A database of biodiversity time series for the Anthropocene. Global Ecology and Biogeography, 27(7), 760–786. https://doi.org/10.1111/geb.12729"
+
+- id: BioDeepTime 
+  abbreviation: BDT 
+  description_short: 
+  long: BioDeepTime 
+  logo: images/logos/biodeeptime_temporary.png
+  website: https://biodeeptime.github.io/
+  organismal_scope: General
+  temporal_scope: 'Paleozoic - Modern'
+  spatial_scope: Global
+  since: 2023 
+  license: CC BY 4.0
+  subcategory: fossilocc 
+  citation:
+  - ""
+
+- id: PBDB 
+  abbreviation: PBDB
+  description_short: 
+  long: The Paleobiology Database
+  logo: images/logos/paleobiodb.png
+  website: https://paleobiodb.org
+  organismal_scope: General
+  temporal_scope: 'Ediacaran - Holocene'
+  spatial_scope: Global
+  since: 1998
+  license: CC BY 4.0
+  subcategory: fossilocc 
+  citation:
+  - "The database has no official publication or citation. However it is recommended to acknowledge the Paleobiology Database in your publication, and to get your listed among the official publications of the PBDB."
+
+- id: GBDB 
+  long: Geobiodiversity Database 
+  website: http://www.geobiodiversity.com/
+  logo2: images/logos/gbdb.png
+    
+- id: neotoma
+  short: Neotoma
+  long: The Neotoma Paleoecology Database 
+  website: https://www.neotomadb.org/
+  logo: images/logos/packrat-logo.svg
+  text: The largest database of palinomorph time series. 
+  subcategory: fossilocc 
+  citation:
+  - "Williams, J. W., Grimm, E. C., Blois, J. L., Charles, D. F., Davis, E. B., Goring, S. J., Graham, R. W., Smith, A. J., Anderson, M., Arroyo-Cabrales, J., Ashworth, A. C., Betancourt, J. L., Bills, B. W., Booth, R. K., Buckland, P. I., Curry, B. B., Giesecke, T., Jackson, S. T., Latorre, C., et al. (2018). The Neotoma Paleoecology Database, a multiproxy, international, community-curated data resource. Quaternary Research, 89(1), 156–177. https://doi.org/10.1017/qua.2017.105"
+
+- id: Neptune
+  long: Neptune Sandbox Berlin
+  website: http://nsb.mfn-berlin.de/
+  logo: images/logos/neptunedb.png
+  citation:
+  - "Renaudie, J., Lazarus, D., & Diver, P. (2020). NSB (Neptune Sandbox Berlin): An expanded and improved database of marine planktonic microfossil data and deep-sea stratigraphy. Palaeontologia Electronica. https://doi.org/10.26879/1032"
+  organismal_scope: Marine microfossils 
+  subcategory: fossilocc 
+   
+- id: NaturalEarth
+  long: Natural Earth
+  website: https://www.naturalearthdata.com/
+  logo: images/logos/nev_logo.png
+  subcategory: geography 
+  temporal_scope: Modern
+  spatial_scope: Global
+  since: 2009
+  citation:
+  - "<p>No permission is needed to use Natural Earth. Crediting the authors is unnecessary. However, if you wish to cite the map data, simply use one of the following: </p> <p><strong>Short text:</strong> Made with Natural Earth.</p> <p><strong>Long text:</strong> Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.</p>"
+
+- id: Triton 
+  long: The Triton Database 
+  subcategory: fossilocc 
+  website: "https://springernature.figshare.com/articles/dataset/Metadata_record_for_Triton_a_new_species-level_database_of_Cenozoic_planktonic_foraminiferal_occurrences/14655564"
+  logo: images/logos/Triton.png
+  organismal_scope: Planktonic foraminifera
+  temporal_scope: Cenozoic
+  since: 2021 
+  text: A curated database of planktonic foraminifera from the Cenozoic.
+  citation:
+  - "Fenton, I. S., Woodhouse, A., Aze, T., Lazarus, D., Renaudie, J., Dunhill, A. M., Young, J. R., & Saupe, E. E. (2021). Triton, a new species-level database of Cenozoic planktonic foraminiferal occurrences. Scientific Data, 8(1), 1–9. https://doi.org/10.1038/s41597-021-00942-7"

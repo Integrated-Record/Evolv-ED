@@ -1,0 +1,76 @@
+- title: Using count data with the <code>subsample()</code> function of the divDyn package
+  authors:
+    - Ádám T. Kocsis
+  tutorial: 2023-03-31_subsample
+  thumbnail: 
+  file: subsample_counts.html
+  files:
+  - name: tempfile.html
+    link: https://github.com/chronosphere-info/emergency/raw/main/ne_10m_land.zip
+    description: Temporary file
+  - name: another.html
+    link: https://github.com/chronosphere-info/emergency/raw/main/ne_10m_land.zip
+    description: Another temporary file  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  doi: 10.5281/zenodo.10614722
+  datum: 2023-03-31
+  version: '1'
+  topic: Paleobiology
+  tags:
+   - subsampling
+   - diversity
+  dependencies:
+   - id: R 
+     version: 4.3.2 
+   - id: divDyn 
+     version: 0.8.2 
+   - id: iNEXT 
+     version: 3.0.0 
+
+- title: Basic diversity dynamics of scleractinian corals with divDyn
+  authors:
+    - Ádám T. Kocsis
+  tutorial: 2023-06-16_corals_divdyn
+  thumbnail: thumb.png
+  file: scleractinian-tutorial_chronos.html
+  files:
+  doi: 10.5281/zenodo.10614722
+  datum: 2023-06-16
+  version: '1'
+  topic: Paleobiology
+  tags:
+   - extinction
+   - origination 
+  dependencies:
+   - id: R 
+     version: 4.3.0 
+   - id: divDyn 
+     version: 0.8.2 
+   - id: chronosphere_R 
+     version: 0.5.0 
+  data:  
+   - id: PBDB 
+
+- title: Basic diversity dynamics of scleractinian corals with divDyn
+  authors:
+    - Ádám T. Kocsis
+  tutorial: 2023-06-16_corals_divdyn
+  thumbnail: thumb.png 
+  file: scleractinian-tutorial_chronos.html
+  files:
+  doi: 10.5281/zenodo.10614722
+  datum: 2024-05-06
+  version: '2'
+  topic: Paleobiology
+  tags:
+   - extinction
+   - origination 
+   - Ohyeah
+  dependencies:
+   - id: R 
+     version: 4.4.0 
+   - id: divDyn 
+     version: 0.8.2 
+   - id: chronosphere_R 
+     version: 0.6.1 
+  data:  
+   - id: PBDB 

@@ -1,0 +1,101 @@
+- id: R
+  longName: The R Project for Statistical Computing
+  logo: images/logos/software/RlogoNew.png
+  website: "https://www.r-project.org/"
+  category: Programming
+  description: R is a programming and running environment developed to execute statistical calculations. It is the GNU version of the S programming language.
+  citation:
+  primaryuse: Statistics, procedural analysis ecological and paleontological data.
+  installation: 
+  external:
+    - title: Advanced R
+      author: Hadley Wickham
+      link: http://adv-r.had.co.nz/
+- id: Python
+  logo: images/logos/software/RlogoNew.png
+  primaryuse: "General, procedural data analysis in physical chemical disciplines."
+  category: Programming
+  citation:
+- id: divDyn
+  logo: images/logos/software/divDyn_hex5-01.png
+  longName: "Diversity Dynamics using Fossil Sampling Data"
+  website: "https://divdyn.github.io/"
+  cran: "https://cran.r-project.org/package=divDyn"
+  extends: R
+  theme: Paleontology
+  installation: 
+  citation:
+- id: iNEXT 
+  logo: 
+  cran: "https://cran.r-project.org/package=iNEXT"
+  longName: "Interpolation and Extrapolation for Species Diversity"
+  extends: R
+  theme: Ecology
+  citation:
+- id: chronosphere_R 
+  logo: images/logos/software/chronosphere_rhex_500.png
+  website: "https://divdyn.github.io/"
+  display: chronosphere (R)
+  cran: "https://cran.r-project.org/package=chronosphere"
+  longName: "Evolved Earth System Variables for R"
+  extends: R
+  citation:
+- id: ffmpeg
+  category: multimedia
+  primaryuse: 
+  logo: images/logos/software/ffmpeg.png
+  citation:
+- id: GPlates 
+  longName: 
+  description: "GPlates is a plate tectonics program. Manipulate reconstructions of geological and paleogeographic features through geological time. Interactively visualize vector, raster and volume data. PyGPlates is the GPlates Python library."
+  website: https://www.gplates.org/
+  category: geology 
+  primaryuse: 
+  logo: images/logos/software/New_GPlates_Logo.png
+  citation:
+  external:
+    - title: The official GPlates tutorials 
+      author: GPlates Team
+      link: https://tutorials.gplates.org/
+- id: rgplates 
+  longName: "R interface for the GPlates Web Service and the GPlates Application" 
+  category: geology 
+  primaryuse: Plate tectonics. 
+  logo: images/logos/software/rgplates.png
+  extends: R
+  citation:
+- id: Julia 
+  primaryuse: 
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+  primaryuse: "Numerical methods, simulations, high-performance computing."
+- id: Matlab
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+- id: C 
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+- id: Cpp 
+  display: "C++"
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+- id: Fortran 
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+  primaryuse: "Numerical methods, simulations, high-performance computing."
+- id: Perl 
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+  primaryuse: "General purpose, text processing, genome sequence data."
+- id: Rev 
+  logo: images/logos/software/RlogoNew.png
+  primaryuse: "Phylogenetic modelling."
+  category: Programming
+- id: Javascript
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+- id: BASH 
+  logo: images/logos/software/RlogoNew.png
+  category: Programming
+  primaryuse: "Shell scripting. "
+

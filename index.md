@@ -1,46 +1,25 @@
 ---
-title: Bulma Clean Theme
-subtitle: This is the demo site for Bulma Clean Theme
 layout: page
-callouts: home_callouts
+title: "The <i>Evolv-ED</i>"
+subtitle: "Educating Computing-based Eco-Evolutionary Science"
 show_sidebar: true
+hero_image: "/images/heros/pexels-photo-2289411.jpeg"
 ---
 
-# Bulma Clean Theme demo website
+# Welcome to Evolv-ED! 
 
-This website showcases the options for the Bulma Clean theme. The theme is available as a ruby gem or can be used with GitHub pages. 
+The Evolv-ED is an online journal and wiki-style platform for educational material about the **resources** used in evolutionary sciences.
 
-[![Gem Version](https://badge.fury.io/rb/bulma-clean-theme.svg)](https://badge.fury.io/rb/bulma-clean-theme)
-![Gem](https://img.shields.io/gem/dt/bulma-clean-theme.svg)
-![GitHub Repo stars](https://img.shields.io/github/stars/chrisrhymes/bulma-clean-theme?style=social)
 
-## Ruby Gem
+> "Do more science... just really weird, f\*cked-up sh\*t... stuff where even you're like: 'Man, I shouldn't have done that'... do that!"
 
-The ruby gem is available on the Ruby Gems website at the following location. [https://rubygems.org/gems/bulma-clean-theme](https://rubygems.org/gems/bulma-clean-theme).
 
-## Documentation
+- Hub of information for the sustainable development of knowledge. It takes longer and longer to familiarize with the complex needs of tools and data.
 
-For full instructions, please see the [Documentation](/bulma-clean-theme/docs/)
+- Curated list of educational material.
 
-## Page Layouts
+- In its current state, the Evolv-ED is an informal journal. 
 
-This demo site showcases the available page layout options. 
 
-* Sidebar
-* Menubar
-* Tabs
-* Footer
-* Hero
-* Contents
-* Landing Page With Callouts
-* Sponsors Page
-* Image Gallery
-* Recipe Page
-* Blog
-* Post
 
-## Supported By JetBrains
 
-JetBrains have kindly provided an Open Source licence to aid in the future development of Bulma Clean Theme.
-
-[![JetBrains](img/jetbrains-variant-4.svg)](https://www.jetbrains.com/?from=bulma-clean-theme)

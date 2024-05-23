@@ -1,15 +1,15 @@
 # Site Settings
 lang: en
-title: Bulma Clean Theme
-tagline: Bulma Clean Theme
+title: Evolv-ED 
+tagline: Educating Computer-based Eco-Evolutionary Science
 email: your-email@domain.com
 description: >
-  The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
-baseurl: "/bulma-clean-theme"
-url: "https://www.csrhymes.com"
-permalink: pretty
+  
+baseurl: ""
+url: "https://evolv-ed.net/"
+# permalink: pretty
 #favicon: /path/to/favicon.png
-gh_sponsor: chrisrhymes
+# gh_sponsor: chrisrhymes
 #hide_share_buttons: true
 #theme_color: '#eeeeee'
 #fixed_navbar: top
@@ -24,7 +24,7 @@ disqus:
   # Leave shortname blank to disable comments site-wide.
   # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
   # shortname: my_disqus_shortname
-  shortname: csrhymes
+  shortname:  
 
 
 plugins:
@@ -34,6 +34,7 @@ plugins:
   - jekyll-seo-tag
   - kramdown-parser-gfm
   - jekyll-redirect-from
+  - jekyll-datapage-generator
 
 exclude: 
   - Gemfile
@@ -44,8 +45,11 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - _material/
 
-livereload: true
+include: ['CNAME']
+
+livereload: false 
 
 sass:
   style: compressed
@@ -54,7 +58,7 @@ sass:
     # - node_modules
 
 #google_analytics: UA-code-here
-cookie_policy: /cookie-policy/
+cookie_policy: 
 
 defaults:
   -
@@ -62,7 +66,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      show_sidebar: true
+      show_sidebar: false 
   -
     scope:
       path: ""
@@ -70,13 +74,12 @@ defaults:
     values:
       author: "C.S. Rhymes"
       layout: post
-      image: https://via.placeholder.com/1200x800
-      show_sidebar: true
+      show_sidebar: false 
 
 markdown: kramdown
 highlighter: rouge
 
-footer_menu: example_footer_menu
+footer_menu: footer 
 
 collections:
   products: 
@@ -84,3 +87,56 @@ collections:
     layout: product
     image: https://via.placeholder.com/800x600
     show_sidebar: false
+
+# the automatic page generator
+page_gen-dirs: true
+page_gen:
+- data: 'tutorialversions'
+  template: 'tutorials'
+  dir: 'tutorials'
+  index_files: false
+  version: 'version'
+  datum: 'datum'
+  tutorial: 'tutorial'
+  name_expr: record['tutorial'] + '-' + record['version']
+  title: 'title'
+  extension: 'html'
+  dependencies: 'dependencies'
+  topic: 'topic'
+  tags: 'tags'
+  files: 'files'
+- data: 'software'
+  template: 'software'
+  dir: 'software'
+  index_files: false
+  name: 'id'
+  id: 'id'
+  longName: 'longName'
+  display: 'display'
+  extension: 'html'
+  extends: 'extends'
+- data: 'data'
+  template: 'data'
+  dir: 'data'
+  index_files: false
+  name: 'id'
+  id: 'id'
+  long: 'long'
+  extension: 'html'
+  logo: 'logo'
+  website: 'website'
+  taxonomic_scope: 'taxonomic_scope'
+  temporal_scope: 'temporal_scope'
+  spatial_scope: 'spatial_scope'
+  since: 'since'
+  license: 'license'
+  abbreviation: 'abbreviation'
+- data: 'data_categ'
+  template: 'data_categ'
+  dir: 'data'
+  index_files: false
+  name: 'id'
+  long: 'long'
+  image: 'image'
+  description: 'description'
+  subcategories: 'subcategories'

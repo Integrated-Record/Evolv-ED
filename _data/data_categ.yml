@@ -1,0 +1,54 @@
+- id: distribution
+  long: Organism Distribution
+  basic: Ranges and occurrence records of taxa - today and in deep time
+  image: images/categories/Juniperus_communis_North_American_range_map_1.png
+  image_src: https://en.wikipedia.org/wiki/Species_distribution#/media/File:Juniperus_communis_North_American_range_map_1.png
+  domain: bio
+  subcategories:
+  - id: modernocc 
+    long: "Modern-focus"
+  - id: fossilocc
+    long: "Fossil-focus"
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+- id: traits 
+  long: Trait Datasets
+  basic: Phenotypic and functional characteristics of taxa 
+  image: images/categories/E1B79791-4DF2-43AD-BC84A138B9AFBD60.jpg
+  image_src: https://superstaar.org/grade-3/life-science/310-adaptations-and-life-cycles/310b-inherited-traits-and-learned-behaviors/what-is-a-trait/
+  domain: bio
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  
+- id: geography 
+  long: Modern Physical Geography
+  image: images/categories/Land_ocean_ice_cloud_1024.jpg
+  images_src: https://en.wikipedia.org/wiki/Physical_geography#/media/File:Land_ocean_ice_cloud_1024.jpg
+  domain: geo
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
+
+  
+- id: dummy1 
+  long: Dummy1 
+  basic: Phenotypic and functional characteristics of taxa 
+  image: images/categories/E1B79791-4DF2-43AD-BC84A138B9AFBD60.jpg
+  image_src: https://superstaar.org/grade-3/life-science/310-adaptations-and-life-cycles/310b-inherited-traits-and-learned-behaviors/what-is-a-trait/
+  domain: bio
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  
+- id: dummy2 
+  long: Dummy2 
+  basic: Phenotypic and functional characteristics of taxa 
+  image: images/categories/E1B79791-4DF2-43AD-BC84A138B9AFBD60.jpg
+  image_src: https://superstaar.org/grade-3/life-science/310-adaptations-and-life-cycles/310b-inherited-traits-and-learned-behaviors/what-is-a-trait/
+  domain: bio
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+- id: dummy3 
+  long: Dummy3 
+  basic: Phenotypic and functional characteristics of taxa 
+  image: images/categories/E1B79791-4DF2-43AD-BC84A138B9AFBD60.jpg
+  image_src: https://superstaar.org/grade-3/life-science/310-adaptations-and-life-cycles/310b-inherited-traits-and-learned-behaviors/what-is-a-trait/
+  domain: bio
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

@@ -1,0 +1,153 @@
+---
+layout: default 
+hide_hero: true
+menubar: data_menu
+---
+
+<!-- Figure out whether this is an R package or not -->
+
+
+<!-- Read in dependencies for the table -->
+<script src="{{site.url}}{{site.baseurl}}/assets/js/jquery-3.7.0.js"></script>  <!--Add JQuery-->
+<script src="{{site.url}}{{site.baseurl}}/assets/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{site.url}}{{site.baseurl}}/assets/css/jquery.dataTables.min.css" />
+
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="{{site.url}}{{site.baseurl}}">Evolv-ED</a></li>
+    <li><a href="{{site.url}}{{site.baseurl}}/software/">Software</a></li>
+	{% if page.extends %}
+    <li><a href="{{site.url}}{{site.baseurl}}/software/{{page.extends | slugify }}.html">{{page.extends}}</a></li>
+	{% endif %}
+    <li class="is-active"><a href="#" aria-current="page">{{page.id}}</a></li>
+  </ul>
+
+</nav>
+
+
+<div class="content">
+ 
+<div class="columns">
+	<div class="column is-7-desktop">
+	   
+		{% if page.display %}
+		<h1>{{page.display}}</h1>
+		{% else %}
+		<h1>{{page.id}}</h1>
+		{% endif %}
+		<h4>{{page.longName}}</h4>
+		<hr>
+		<div class="box">
+		<strong>Website</strong>: <a href="{{page.website}}">{{page.website}}</a> <br>
+		</div>
+	</div>
+	<div class="column is-1-desktop">
+	</div>
+	<div class="column is-4-desktop">
+		<a href="{{page.website}}" ><img src="{{site.url}}{{site.baseurl}}/{{page.logo}}" alt="Data logo"></a>
+	</div>
+</div>
+
+{% if page.citation %}
+<div class="box">
+  <h2>Citation</h2>
+  <hr>
+  <p>{{page.citation}}</p>
+</div>
+
+{% endif %}
+</div> <!-- close content tag --->
+<!-- </div> force out from main content column --->
+<!-- </div> force out from columns of main content --->
+
+<div class="content">
+
+  <hr>
+  
+ <div class="columns">
+ <div class="column is-12">
+<div class="box" id="tutbox">
+  <h2 id="tutorials">Tutorials</h2>
+  <hr>
+	<!-- Get which are this resrouce: relevant-->
+	{% assign relevant = "" | split: "," %}
+	{% for tut in site.data.tutorialversions %}
+		{% assign criterion = tut.dependencies| where: 'id', page.id %}
+		{% assign fits = criterion | size %}
+		{% if fits > 0 %}
+			{% assign relevant = relevant | push: tut %}
+		{% endif %}
+	{% endfor %}
+
+  <table class="display" id="my-table">
+	<thead>
+		<tr><th>Title</th><th>Software</th></tr>
+	</thead>
+	<tbody>
+	  <!-- Go through all tutorials -->
+	  {% for tut in site.data.tutorials %}
+		<!-- Filter relevant tutorials to this tutorial -->
+		{% assign these = relevant | where: 'tutorial', tut.id %}
+		<!-- Sort these by date -->
+		{% assign thisSize = these | size %}
+		{% if  thisSize > 0 %}
+			{% assign theseSorted = these | sort: 'datum' | reverse%}
+			<!-- select the most up-to date -->
+			{% assign tv = theseSorted[0] %}
+		  <tr>
+			<td style="text-align: left"> <a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}.html">{{ tv.title }} </a></td>
+			<td>
+			  <div class="field is-grouped is-grouped-multiline">
+			  {% for res in tv.dependencies%}
+			  <div class="control">
+				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  {% for thisRes in site.data.software %}
+
+					<!-- If the resource is present in registry, showi it -->
+					{% if thisRes.id == res.id %}
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  {% if thisRes.display%}
+					<span class="tag is-info">{{thisRes.display}}</span>
+					  {% else %}
+					<span class="tag is-info">{{res.id}}</span>
+					  {% endif %}
+					{% endif %}
+
+				  {% endfor %}
+				</div></a>
+			  </div>
+			  {% endfor %}
+			  </div>
+			</td>
+		  </tr>
+		{% endif%}
+	  {% endfor %}
+
+	</tbody>
+  </table>
+
+{% assign something = relevant | size %}
+{% if something == 0 %}
+	<style>
+	#tutbox {
+	display: none
+	} 
+	</style>
+{% endif %}
+<!-- </div>  close column -->
+<!-- </div> close columns -->
+
+
+</div> <!-- close content -->
+</div>
+
+<!-- dummy containers -->
+<div>
+<div>
+
+<!-- Modification script for the data-table -->
+<script>
+new DataTable('#my-table');
+</script>

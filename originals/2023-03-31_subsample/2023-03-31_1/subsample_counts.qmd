@@ -1,0 +1,104 @@
+---
+title: Using count data with the `subsample()` function of the divDyn package.
+bibliography: 'subsample_counts.bib'
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- R-4.3.1
+- divDyn-0.8.2
+- iNEXT-3.0.0
+format:
+  html:
+    embed-resources: true
+---
+
+::: {#resources}
+:::
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Although the ``subsample()`` function was developed for estimating turnover rates and diversity changes over multiple time intervals, it was adapted to execute subsampling on single samples.
+
+
+Let's say that we have a sample of 20 species, where species have the following number of specimens:
+
+```{r counts, message=FALSE, paged.print=FALSE}
+# counts of specimens
+counts <- c(35,19,13,9,6,4,2,2,2,2,2,2,2,1,1,1,1,1,1,1)
+```
+
+### Preparing data
+
+The current version of divDyn [@kocsis2019package] can only accept extended formats for ecological samples. This means that every specimen (identity) has to be present as a separate object. To make the count data above compatible with ``subsample()``, we can use the ``rep()`` funciton from the base package to repeat placeholders (i.e. letters) that symbolize the specimens that belong to different species. 
+
+```{r specimens, message=FALSE, paged.print=FALSE}
+# one letter that represents each species
+species <- letters[1:length(counts)]
+
+# extended format of the sample
+specimens <- rep(species, counts)
+```
+
+Running the ``table()`` function confirms that the structure we created is indeed matching the count data above. 
+
+```{r table, message=FALSE, paged.print=FALSE}
+table(specimens)
+```
+
+To make the vector of specimens compatible with the ``subsample()`` function, we have to make it a ``data.frame``.
+
+```{r df, message=FALSE, paged.print=FALSE}
+samp <- data.frame(specimens, stringsAsFactors=FALSE)
+```
+
+As factors are more difficult to work with (unless you intentionally want to), it is easier to write more reliable analyses if you stick with characters.
+
+### Richness function
+
+By default, the ``subsample()`` function uses the ``divDyn()`` function as the applied procedure in the subsampling loops. We have to override this by another function that calculates diversity (e.g. richness) estimates from the long format of the sample. For richness, it is easiest to write your own function that just counts the number of unique elements in the vector.
+
+```{r richfunc, message=FALSE, paged.print=FALSE}
+richness <- function(x) length(unique(x))
+richness(specimens)
+```
+
+### Subsampling
+
+The important thing to note is, that the argument of this function has to be ``x``. In simple cases where the ``data.frame`` which is fed to the ``subsample`` function has only one column, this represents a vector of specimens.
+
+Now, all that remains is to feed our data to the subsampling. By default, subsample will execute classical rarefaction [@sanders_marine_1968]. 
+
+```{r cr, message=FALSE, paged.print=FALSE}
+library(divDyn)
+# Richness subsampled to 10 individuals, number of iterations is 1000
+subsample(samp, tax="specimens", q=10, FUN=richness, iter=1000, counter=F)
+```
+
+As the target quota is quite low, you need to increase the number of iterations to make the estimate stabilize.
+
+To run Shareholder Quorum Subsampling [@alroy_shifting_2010], you have to specify the ``type`` and the ``q`` arguments appropriately.
+
+```{r sqs, message=FALSE, paged.print=FALSE}
+# Richness subsampled to 10 individuals, number of iterations is 1000
+subsample(samp, tax="specimens", q=0.5, type="sqs", FUN=richness, iter=1000, counter=F)
+```
+
+You can contrast this with the analytical solution (coverage-based rarefaction) [@chao_coverage-based_2012]  implemented in the iNEXT-package
+
+```{r inext, message=FALSE, paged.print=FALSE}
+# download with install.packages(iNEXT)
+library(iNEXT)
+
+# estimate Hill numbers for 0.5 coverage
+estimateD(counts, base="coverage", level=0.5)
+```
+
+Value we are interested in is ``qD`` at the order of ``0``, which is somewhat higher than the solution suggested by SQS, but the offset is really not high, concerning that we are talking about fractions of species. The true advantage of using ``subsample()`` is that you can supply any function as ``FUN`` and do not have to stick with Hill-numbers.
+
+

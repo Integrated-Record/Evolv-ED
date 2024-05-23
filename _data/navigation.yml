@@ -1,19 +1,32 @@
-- name: Docs
-  link: /docs/
-- name: Example Pages
-  link: /#
+- name: About
   dropdown:
-    - name: Landing Page With Callouts
-      link: /landing/
-    - name: Sponsors Page
-      link: /sponsors/
-    - name: Image Gallery
-      link: /gallery/
-    - name: Products
-      link: /products/
-    - name: Recipe Page
-      link: /example-recipe/
-    - name: Showcase
-      link: /showcase/
-- name: Blog
-  link: /blog/
+    - name: Overview 
+      link: /about/overview/
+    - name: Material 
+      link: /about/material/
+    - name: Editorial 
+      link: /about/editorial/
+    - name: Support 
+      link: /about/support/
+    - name: Related Projects
+      link: /about/related/
+- name: Data
+  link: /data/
+- name: Software
+  dropdown:
+    - name: Basics 
+      link: /software/basics/
+    - name: Programming 
+      link: /software/programming/
+    - name: Science Communication 
+      link: /software/scicomm/
+    - name: Domain-specific Apps 
+      link: /software/domainapps/
+- name: Tutorials
+  link: /tutorials/
+- name: Contribute!
+  dropdown:
+    - name: Data and software pages 
+      link: /contribute/resource/
+    - name: Authoring tutorials
+      link: /contribute/writetutorials/

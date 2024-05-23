@@ -1,0 +1,149 @@
+---
+layout: default 
+hide_hero: true
+---
+
+
+<!-- Load tab openening files -->
+<link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/tabs.css">
+<script src="{{site.url}}{{site.baseurl}}/assets/js/openTabs.js"></script> 
+
+<div class="columns">
+<div class="column is-10-desktop is-9-tablet is-12-mobile">
+
+<div class="content">
+
+
+<div style="margin-bottom:10px">
+  <h2>{{page.title}}</h2>
+  {% for author in page.authors %}
+  {% unless forloop.last %}
+	{{author}},&nbsp;
+  {% else %}
+	{{author}}
+  {% endunless %}
+  {% endfor %}
+</div>
+
+
+<div class="field is-grouped is-grouped-multiline">
+  <strong>Topic:&nbsp;</strong> {{page.topic}} &nbsp;|&nbsp;
+  <strong>Version(s): </strong>
+	<div class="dropdown">
+	<div class="dropdown-trigger">
+		&nbsp;<button class="button is-small is-info is-outlined" aria-haspopup="true" aria-controls="dropdown-menu" onclick="this.parentNode.parentNode.classList.toggle('is-active')" style="font-size:0.6rem">
+		<span>v{{page.version}}</span>
+		<span class="icon is-small">
+			<i class="fas fa-angle-down" aria-hidden="true"></i>
+		</span>
+		</button>
+	</div>
+	<div class="dropdown-menu" id="dropdown-menu" role="menu">
+		<div class="dropdown-content">
+  <!-- Compare -->
+  {% assign thisTutorial = site.data.tutorialversions | where: "tutorial", page.tutorial | sort: 'datum'%}
+  {% for tut in thisTutorial%}
+	{%if tut.version == page.version%}
+      <a href="#" class="dropdown-item is-active">v{{tut.version}} - <i>({{tut.datum}})</i></a>
+	{% else %}
+      <a href="{{site.url}}{{site.baseurl}}/tutorials/{{tut.tutorial}}-{{tut.version}}.html" class="dropdown-item">v{{tut.version}} - <i>({{tut.datum}})</i></a>
+	{% endif %}
+  
+  {% endfor %}
+	</div>
+	</div>
+	</div>
+
+  &nbsp;| &nbsp;{{page.datum}}
+  &nbsp;| &nbsp;<a href="https://doi.org/{{page.doi}}">
+	<div class="control">
+	<div class="tags has-addons">
+      <span class="tag is-dark">DOI</span>
+      <span class="tag is-info">{{page.doi}}</span>
+	</div>
+	</div>
+	</a>
+</div>
+<div class="tabs is-boxed">
+  <ul style="margin-left:0px">
+    <li class="tab is-active" onclick="openTab(event,'Resources')"><a>Software and Data</a></li>
+    {% if page.files %}<li class="tab" onclick="openTab(event,'Files')"><a>Files</a></li> {% endif %}
+    <li  class="tab" onclick="openTab(event,'Tags')"><a>Tags</a></li>
+  </ul>
+</div>
+<div class="tabs-content">
+	<ul>
+	<li id="Resources" class="content-tab is-active">
+		<div class="field is-grouped is-grouped-multiline">
+		{% for res in page.dependencies%}
+		<div class="control">
+			<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags has-addons">
+			<!-- Search for the resource's long name -->
+			{% for thisRes in site.data.software %}
+
+				<!-- If the resource is present in registry, showi it -->
+				{% if thisRes.id == res.id %}
+				<!-- If there is a display name, show that, otherwise use ID -->
+				{% if thisRes.display%}
+				<span class="tag is-info">{{thisRes.display}}</span>
+				{% else %}
+				<span class="tag is-info">{{res.id}}</span>
+				{% endif %}
+				<span class="tag is-light">v{{res.version}}</span>
+				{% endif %}
+
+			{% endfor %}
+			</div></a>
+		</div>
+		{% endfor %}
+
+		{% for da in page.data %}
+		<div class="control">
+			<a href="{{site.url}}{{site.baseurl}}/data/{{da.id | downcase}}.html"><div class="tags">
+			<span class="tag is-danger">{{da.id}}</span>
+			</div></a>
+		</div>
+		{% endfor %}
+		</div>
+	</li>
+	{% if page.files %}
+	<li id="Files" class="content-tab">
+	  <table class="table">
+		<thead>
+		<tr>
+		  <th style="text-align:center;width:20%">File</th> <th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for f in page.files %}
+		<tr>
+			<td style="text-align:center;"><a href="{{f.link}}">{{f.name}}&nbsp;</a></td><td style="text-align:left">{{f.description}}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+      </table>
+	</li>
+	{% endif %}
+	<li id="Tags" class="content-tab">
+	 TAGS! 
+	</li>
+	</ul>
+</div> <!-- end tabs-content -->
+
+</div>
+</div>
+
+<div class="column is-2-desktop is-3-tablet is-0-mobile">
+  <a href="{{site.url}}{{site.baseurl}}"><img src="{{site.url}}{{site.baseurl}}/images/logos/symbol_light.png"></a>
+</div>
+
+</div>
+
+<div class="content">
+
+<hr>
+<hr>
+<iframe src="{{site.url}}{{site.baseurl}}/originals/{{page.tutorial}}/{{page.datum}}_{{page.version}}/{{page.file}}" height="700" width="100%" title="Iframe Example" allowfullscreen style="-webkit-transform:scale(1.1);-moz-transform-scale(1.1);"></iframe> 
+</div>
+
+
