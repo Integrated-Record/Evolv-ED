@@ -64,7 +64,11 @@ You can find all available tutorials on this page.
 					<div class="control">
 						<div class="tags has-addons" style="margin-bottom:8px;flex-wrap:nowrap;padding-top:0.25rem">
 							<span class="tag is-dark is-small" style="font-size:0.5rem">DOI</span>
+							{%if tv.doi %}
 							<span class="tag is-info is-small" style="font-size:0.5rem">{{tv.doi}}</span>
+							{% else %}
+							<span class="tag is-danger is-small" style="font-size:0.5rem">Not yet!</span>
+							{% endif%}
 						</div>
 					</div>
 				</a> 

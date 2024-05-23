@@ -55,6 +55,7 @@ hide_hero: true
 	</div>
 
   &nbsp;| &nbsp;{{page.datum}}
+  {% if page.doi %}
   &nbsp;| &nbsp;<a href="https://doi.org/{{page.doi}}">
 	<div class="control">
 	<div class="tags has-addons">
@@ -63,6 +64,7 @@ hide_hero: true
 	</div>
 	</div>
 	</a>
+   {% endif %}
 </div>
 <div class="tabs is-boxed">
   <ul style="margin-left:0px">
