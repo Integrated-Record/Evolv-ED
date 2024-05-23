@@ -2,7 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 $family-sans-serif: 'Montserrat', sans-serif;
-$primary: #188eac !default;
+$primary: #15529E !default;
+$info: #3e8ed0 !default;
+$link: #485fc7 !default;
+$gray: #bbbbbb;
+$danger: #f14668;
 
 $tabs-link-active-color: $primary;
 $tabs-link-active-border-bottom-color: $primary;
@@ -20,6 +24,12 @@ $hero-darken: $dark !default;
 
 .gh-sponsor {
   color: #ea4aaa;
+}
+
+.tag.is-info{
+	color:#fff;
+}
+
 .footer {
 	padding-bottom: 48px;
 }
