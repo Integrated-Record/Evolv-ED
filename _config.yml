@@ -135,6 +135,7 @@ page_gen:
   template: 'data_categ'
   dir: 'data'
   index_files: false
+  title: 'long'
   name: 'id'
   long: 'long'
   image: 'image'
