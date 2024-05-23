@@ -74,3 +74,29 @@
      version: 0.6.1 
   data:  
    - id: PBDB 
+
+ 
+- title: "Writing Quarto Tutorials for Evolv-ED"
+  authors:
+    - Ádám T. Kocsis
+  tutorial: 2024-05-23_evolv-ed_basics
+  thumbnail: 
+  file: tutorial_template.html
+  files:
+  - name: tutorial_template.qmd
+    link: ../../originals/2024-05-23_evolv-ed_basics/2024-05-23_1/tutorial_template.qmd
+    description: Quarto template file. 
+  - name: earth.png
+    link: ../../originals/2024-05-23_evolv-ed_basics/2024-05-23_1/earth.png
+    description: External file. A photo of Earth. 
+  - name: references.bib 
+    link: ../../originals/2024-05-23_evolv-ed_basics/2024-05-23_1/references.bib
+    description: Bibliography file used by the tutorial. 
+  doi: 
+  datum: 2024-05-23
+  version: '1'
+  topic: Science-Communication 
+  dependencies:
+   - id: R 
+     version: 4.4.0 
+  data:

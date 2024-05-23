@@ -1,0 +1,124 @@
+---
+title: "Writing Quarto Tutorials for Evolv-ED"
+bibliography: 'references.bib'
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- R-4.4.0
+- Quarto-1.3.50
+- yaml
+- html 
+- bibtex
+- pandoc
+- Database
+format:
+  html:
+    embed-resources: true
+---
+
+
+## Basics
+
+This `.html` tutorial was built using a [Quarto](https://quarto.org/) markdown document, which can be accessed from the **Files** tab above, along with all other template files. 
+
+
+You can build the tutorial with the quarto [console application](https://quarto.org/docs/get-started/):
+
+```
+quarto render tutorial_template.qmd
+```
+
+Feel free to rename the file to anything you like. See hints here for the amazing set of options for building quarto documents:
+
+- [General quarto authoring](https://quarto.org/docs/authoring/markdown-basics.html)
+- [Options for `html` output](https://quarto.org/docs/output-formats/html-basics.html).
+
+### The yaml metadata
+
+Quarto documents use `yaml` metadata at the front to give some bounds to the document. This document's metadata are:
+
+```
+---
+title: "Tutorial to write Quarto for Evolv-ED"
+bibliography: 'references.bib'
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- R-4.4.0
+- Quarto-1.3.50
+- yaml
+- html 
+- bibtex
+- pandoc
+- Database
+format:
+  html:
+    embed-resources: true
+---
+
+```
+| field          | What goes there                                      |
+|----------------|------------------------------------------------------|
+| `title`        | The title of your tutorial                           |
+| `bibliography` | The name of the bibliography bibtex file - if used   |
+| `author`       | Array of authors, see Quarto description for details |
+| `resources`    | Array of resources to be tagged                      |
+
+### Linking to resources
+
+Although you could see some examples in this tutorial, in general please refrain from pointing links to the web because the persistence of these links are usually not guaranteed. Linking to the used resources will be taken care of by Evolv-ED internally.
+
+Every resource (software or database) has a unique id, which has to be listed in the `resources` field. If a specific version is used to build this tutorial, or if it is known that the tutorial depends on a specific **version**, it needs to be indicated, separating the version number with a hyphen:
+
+`resourceID-versionNumber`
+
+Software and data change over the years. If the **same tutorial** has to be updated because it no longer works with current versions of the software and data, a new version can be submitted.
+
+
+## External files
+
+Tutorials can include and use external files, but they will have to be provided so the tutorial can be rebuilt. Here is an example of a separate image file `earth.png` (See **Files** tab above) referred to in the document:
+
+![The Blue Marble](earth.png)
+
+
+## Code snippets
+
+The primary use of Quarto is in literate programming. For instance in R, here is a vector:
+
+```{r vector, echo=TRUE}
+vect <- 1:10
+vect
+```
+
+There is a single workspace for the Quarto document, which means that previously defined objects can be reused in other blocks. Plotting is also possible.
+
+```{r plotting, echo=TRUE, plot=TRUE}
+plot(vect)
+```
+
+
+## Referencing
+
+Referencing is done in pandoc style with `@bibtexhandle`. See the quarto tutorials for more. Here is an example citation [@alroy2010shifting]. This is the same without parens: @alroy2010shifting. Bibliography is compiled at the end of the document.
+
+
+## Authoring guidelines 
+
+As long as the document builds into a single `html` file, it should be good for Evolv-ED. The built `.html` file will be rebuilt and embedded as-is on Evolv-ED and will be deposited on Zenodo. Every submission must include:
+
+1. The built html file - what the tutorial will look like.
+2. The original Quarto file (.qmd)
+3. Bibliography file (.bib), if citations are used.
+4. All external files that are required to build the tutorial.
+
+
+
