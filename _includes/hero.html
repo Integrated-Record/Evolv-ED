@@ -6,15 +6,18 @@
 >
     <div class="hero-body {% if page.hero_darken %} hero-darken {% endif %}">
         <div class="container">
-            <h1 class="title is-2">{{ page.title }}</h1>
-            <p class="subtitle is-3">{{ page.subtitle }}</p>
-            {% if page.hero_link %}
-                <div class="my-4">
-                    <a href="{{ page.hero_link | relative_url }}" class="button is-info is-large">
-                        {{- page.hero_link_text -}}
-                    </a>
-                </div>
-            {% endif %}
+		  <div class="columns is-vcentered">
+			<div class="column is-7">
+			  <h1 class="title is-2 herotitle">{{ page.title }}</h1>
+			  <p class="subtitle is-3 herotitle">{{ page.subtitle }}</p>
+			  {% if page.hero_link %}
+				  <a href="{{ page.hero_link | relative_url }}" class="button is-info is-large">{{ page.hero_link_text }}</a>
+			  {% endif %}
+			</div>
+			<div class="column is-3" style="text-align:center">
+			  <a href="{{site.url}}{{site.baseurl}}"><img src="{{site.url}}{{site.baseurl}}/images/logos/symbol_dark.png" width="400px" class="herotitle"></a>
+			</div>
+			</div>
         </div>
     </div>
 </section>
