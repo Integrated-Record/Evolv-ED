@@ -20,8 +20,10 @@ You can find all available tutorials on this page.
 - Use the search bar to find tutorials based text.
 - Click on resource buttons to learn more about them. Software resources are marked as blue tags, data resources with red: <span class="tag is-info">software</span> <span class="tag is-danger">data</span>
 - Tutorials are archived. 
+
 </div>
 
+<br>
 
 <div class="box">
   <h2 id="tutorials">Tutorials</h2>
@@ -99,9 +101,9 @@ You can find all available tutorials on this page.
 					{% if thisRes.id == res.id %}
 					  <!-- If there is a display name, show that, otherwise use ID -->
 					  {% if thisRes.display%}
-					<span class="tag is-info">{{thisRes.display}}</span>
+					<span class="tag is-info resourcetag">{{thisRes.display}}</span>
 					  {% else %}
-					<span class="tag is-info">{{res.id}}</span>
+					<span class="tag is-info resourcetag">{{res.id}}</span>
 					  {% endif %}
 					{% endif %}
 				  {% endfor %}
@@ -119,9 +121,9 @@ You can find all available tutorials on this page.
 					{% if thisRes.id == res.id %}
 					<!-- If there is a display name, show that, otherwise use ID -->
 					{% if thisRes.display%}
-					<span class="tag is-danger">{{thisRes.display}}</span>
+					<span class="tag is-danger resourcetag">{{thisRes.display}}</span>
 					{% else %}
-					<span class="tag is-danger">{{res.id}}</span>
+					<span class="tag is-danger resourcetag">{{res.id}}</span>
 					{% endif %}
 					{% endif %}
 				{% endfor %}

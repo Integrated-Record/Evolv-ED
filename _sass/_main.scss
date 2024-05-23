@@ -37,3 +37,15 @@ $hero-darken: $dark !default;
 .herotitle{
 	filter: drop-shadow(2px 2px 3px #000d);
 }
+/*
+Resource tags
+*/
+
+.tag.is-info{
+	color:#fff;
+}
+
+.resourcetag{
+	margin-bottom:5px;
+
+}
