@@ -21,9 +21,9 @@ About data in general... Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 {% for categ in biocateg %}
 
-<div class="cell" style="padding: 10px">
+<div class="cell">
+<a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
 <div class="card">
-  <a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
   <div class="card-image">
     <figure class="image is-4by3">
       <img
@@ -32,20 +32,18 @@ About data in general... Lorem ipsum dolor sit amet, consectetur adipiscing elit
       />
     </figure>
   </div>
-  </a>
-  <a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-5">{{categ.long}}</p>
+        <p class="title is-6">{{categ.long}}</p>
       </div>
     </div>
-    <div class="content">
+    <div class="content categdescription">
 	{{categ.basic}}
     </div>
   </div>
-  </a>
 </div>
+</a>
 
 </div>
 
