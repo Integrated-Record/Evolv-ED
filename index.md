@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "The <i>Evolv-ED</i>"
-subtitle: "Educating Computing-based Eco-Evolutionary Science"
+subtitle: "Educating Computers for Evolutionary Science"
 show_sidebar: true
 hero_image: "/images/heros/pexels-photo-2289411.jpeg"
 ---

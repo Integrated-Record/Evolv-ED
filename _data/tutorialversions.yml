@@ -11,7 +11,7 @@
   - name: another.html
     link: https://github.com/chronosphere-info/emergency/raw/main/ne_10m_land.zip
     description: Another temporary file  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  doi: 10.5281/zenodo.10614722
+  doi: 
   datum: 2023-03-31
   version: '1'
   topic: Paleobiology
