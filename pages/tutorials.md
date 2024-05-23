@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tutorials 
+title: Tutorial Index 
 permalink: /tutorials/
 hero_image: "/images/heros/free-photo-of-termeszet-viz-sziklak-moha.jpeg"
 ---
@@ -46,7 +46,7 @@ You can find all available tutorials on this page.
 			<td style="text-align: left"> 
 				<div class="columns">
 				<div class="column is-9">
-				<a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}.html">
+				<a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}/">
 				<p><strong>{{ tv.title }} </strong></p>
 				</a>
 				<div>
@@ -82,7 +82,7 @@ You can find all available tutorials on this page.
 				
 				</div>
 				<div class="column is-3" style="flex-shrink: 1; min-height:130px; text-align:center">
-					<a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}.html">
+					<a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}/">
 					{% assign thumbnail = tv.thumbnail %}
 					{%if thumbnail %}
 						<img src="{{site.url}}{{site.baseurl}}/originals/{{tv.tutorial}}/{{tv.datum}}_{{tv.version}}/{{thumbnail}}" style="max-height: 130px">
@@ -98,7 +98,7 @@ You can find all available tutorials on this page.
 			  <div class="field is-grouped is-grouped-multiline">
 			  {% for res in tv.dependencies%}
 			  <div class="control">
-				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags">
+				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}/"><div class="tags">
 				  <!-- Search for the resource's long name -->
 				  {% for thisRes in site.data.software %}
 					<!-- If the resource is present in registry, showi it -->
@@ -118,7 +118,7 @@ You can find all available tutorials on this page.
 			  <div class="field is-grouped is-grouped-multiline">
 			{% for res in tv.data %}
 			<div class="control">
-				<a href="{{site.url}}{{site.baseurl}}/data/{{res.id | downcase}}.html"><div class="tags">
+				<a href="{{site.url}}{{site.baseurl}}/data/{{res.id | downcase}}/"><div class="tags">
 				<!-- Search for the resource's long name -->
 				{% for thisRes in site.data.data %}
 					<!-- If the resource is present in registry, showi it -->

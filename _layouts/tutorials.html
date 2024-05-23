@@ -46,7 +46,7 @@ hide_hero: true
 	{%if tut.version == page.version%}
       <a href="#" class="dropdown-item is-active">v{{tut.version}} - <i>({{tut.datum}})</i></a>
 	{% else %}
-      <a href="{{site.url}}{{site.baseurl}}/tutorials/{{tut.tutorial}}-{{tut.version}}.html" class="dropdown-item">v{{tut.version}} - <i>({{tut.datum}})</i></a>
+      <a href="{{site.url}}{{site.baseurl}}/tutorials/{{tut.tutorial}}-{{tut.version}}/" class="dropdown-item">v{{tut.version}} - <i>({{tut.datum}})</i></a>
 	{% endif %}
   
   {% endfor %}
@@ -79,7 +79,7 @@ hide_hero: true
 		<div class="field is-grouped is-grouped-multiline">
 		{% for res in page.dependencies%}
 		<div class="control">
-			<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags has-addons">
+			<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}/"><div class="tags has-addons">
 			<!-- Search for the resource's long name -->
 			{% for thisRes in site.data.software %}
 
@@ -101,7 +101,7 @@ hide_hero: true
 
 		{% for da in page.data %}
 		<div class="control">
-			<a href="{{site.url}}{{site.baseurl}}/data/{{da.id | downcase}}.html"><div class="tags">
+			<a href="{{site.url}}{{site.baseurl}}/data/{{da.id | downcase}}/"><div class="tags">
 			<span class="tag is-danger">{{da.id}}</span>
 			</div></a>
 		</div>
