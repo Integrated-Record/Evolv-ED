@@ -45,7 +45,7 @@ You can find all available articles on this page.
 			<td style="text-align: left"> 
 				<div class="columns">
 				<div class="column is-9">
-				<a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}/">
+				<a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}.html">
 				<p><strong>{{ tv.title }} </strong></p>
 				</a>
 				<div>
@@ -81,7 +81,7 @@ You can find all available articles on this page.
 				
 				</div>
 				<div class="column is-3" style="flex-shrink: 1; min-height:130px; text-align:center">
-					<a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}/">
+					<a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}.html">
 					{% assign thumbnail = tv.thumbnail %}
 					{%if thumbnail %}
 						<img src="{{site.url}}{{site.baseurl}}/originals/{{tv.tutorial}}/{{tv.datum}}_{{tv.version}}/{{thumbnail}}" style="max-height: 130px">
@@ -97,7 +97,7 @@ You can find all available articles on this page.
 			  <div class="field is-grouped is-grouped-multiline">
 			  {% for res in tv.dependencies%}
 			  <div class="control">
-				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}/"><div class="tags">
+				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags">
 				  <!-- Search for the resource's long name -->
 				  {% for thisRes in site.data.software %}
 					<!-- If the resource is present in registry, showi it -->
@@ -117,7 +117,7 @@ You can find all available articles on this page.
 			  <div class="field is-grouped is-grouped-multiline">
 			{% for res in tv.data %}
 			<div class="control">
-				<a href="{{site.url}}{{site.baseurl}}/data/{{res.id | downcase}}/"><div class="tags">
+				<a href="{{site.url}}{{site.baseurl}}/data/{{res.id | downcase}}.html"><div class="tags">
 				<!-- Search for the resource's long name -->
 				{% for thisRes in site.data.data %}
 					<!-- If the resource is present in registry, showi it -->
