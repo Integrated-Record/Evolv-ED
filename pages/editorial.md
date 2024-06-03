@@ -9,4 +9,8 @@ menubar_toc: true
 
 ## Editorial Team
 
+The Evolv-ED project is organized by Adam T. Kocsis. 
+
 ## Quality control 
+
+Informal style on purpose

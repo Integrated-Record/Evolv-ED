@@ -100,7 +100,7 @@ The dataset should be cleaned as much as possible at this stage, for didactic pu
 
 ## Stratigraphic resolution
 
-Every colleciton in the the PaleoDB has a user entered ``'early_interval'`` and ``'late_interval'`` field. These are fields are used to place the collection in stratigraphy/geological time. The ``'early_interval'`` collection is mandatory for every entry while the ``'late_interval'`` is only necessary if the taxon does not fit in the interval specified as ``'early_interval'``. Otherwise the ``'late_interval'`` field is blank (empty quotes: ``""``).
+Every collection in the the PaleoDB has a user entered ``'early_interval'`` and ``'late_interval'`` field. These are fields are used to place the collection in stratigraphy/geological time. The ``'early_interval'`` collection is mandatory for every entry while the ``'late_interval'`` is only necessary if the taxon does not fit in the interval specified as ``'early_interval'``. Otherwise the ``'late_interval'`` field is blank (empty quotes: ``""``).
 
 The divDyn package uses two frequently used, discrete time scales that we use as the finest stratigraphic resolution of our analyses: the stage level time scale (``stages``, 95 bins) and the ten million year time scale (``tens``, 49 bins). These can be attached with the ``data()`` function:
 
@@ -238,12 +238,21 @@ tsplot(stages, boxes="sys", boxes.col="systemCol",
 	shading="series", xlim=c(250, 0), ylim=c(0,2000))
 ```
 
-The you can draw the number of occurrences with ``lines()``. As the same row indices in the stages object and the result of ``binstat()`` indicate values that belong to the same interval, you do not need any subsetting to align the to data.frames. 
+For the sake of simplicity it is best to combine the output of `binstat()` wth that timescale object. Since the `stg` column indicates that same time slices in both objects, this step is easiest to accomplish with a simple `merge()` function call. This step should take care of any temporal mismatches between the two objects and will ensure that the correct values are plotted on th the geological timescale.
+
+```{r sampMerge, echo=TRUE, eval=TRUE}
+bsMerged <- merge(stages, bs, by="stg")
+
+# inspect object
+str(bsMerged)
+```
+
+Then you can draw the number of occurrences with ``lines()``. 
 
 ```{r basePlotLine, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 tsplot(stages, boxes="sys", boxes.col="systemCol", 
   shading="series", xlim=c(250, 0), ylim=c(0,2000), ylab="Number occurrences")
-lines(stages$mid, bs$occs)
+lines(bsMerged$mid, bsMerged$occs)
 ```
 
 We will mostly use the same basic function call for plotting, and typing all these arguments is time consuming. But we can spare some time, if we defined a wrapper function around the plotting that executes the plotting call the with the same arguments that we want to keep the same, while allowing us to change what we would like to change. This is fairly straightforward with the ``...`` argument that allows you to pass arguments through function calls.
@@ -257,7 +266,7 @@ Now, every time you call the newly defined function ``tp()`` it will have the sa
 
 ```{r collPlot, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 tp(ylim=c(0,350), ylab="Number of collections")	
-  lines(stages$mid, bs$colls)
+  lines(bsMerged$mid, bsMerged$colls)
 ```
 
 The nicest feature of this function is that you do not have to use the built-in data, you can create your own timescale, as long as you use the same structure as in stages and specify the top and bottom boundaries of the intervals (top and bottom columns). 
@@ -286,12 +295,19 @@ The abbreviations are resolved in the help file that can be accessed with
 
 This file also includes all equations that are used to calculate the variables. 
 
+It is recommended to merge the output of the `divDyn()` function with that of the timescale, similar to how we did it earlier.
+
+```{r ddMerge, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
+ddMerged <- merge(stages, dd, by="stg")
+```
+
+
 The most basic way to count richness over time is with range-through diversities (``divRT``). This is simply just the count of taxa that was supposed to be living in an interval (assuming presence if it was found before and after it, if it is not sampled). You can plot these with:
 
 ```{r divRT, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 # simple diversity
   tp(ylim=c(0,300), ylab="richness")	
-  lines(stages$mid, dd$divRT, lwd=2)
+  lines(ddMerged$mid, ddMerged$divRT, lwd=2)
 ```
 
 This is the metric that can be applied to Sepkoski's compendium [@sepkoski_compendium_2002]. Note that diversity in the Cretaceous is comparable to those that corals demonstrated in the Neogene, with a slight decrease in the Cretaecous. The sharp drop in the last bin is also worthy of notion. This is an edge effect and is also partially present because the fossil information in the Holocene is usually worse in the PaleoDB. However, adding all recent taxa to the dataset would also create an artifact known as the Pull of the Recent. The complete preservation would spuriously increase range-based diversity estimates in the last few bins.
@@ -320,11 +336,15 @@ cr50 <- subsample(dats, tax="genus", bin="stg",
   q=50, coll="collection_no", duplicates=FALSE, iter=300)
 ```
 
-This function call will run the default Classical Rarefaction method on every interval ``300`` times, calculate the entire divDyn output matrix in every trial and averages the results. With specifying ``coll=collection_no`` and ``duplicates=FALSE``, we instruct the function to treat the multiple occurrences of the same genus in a collection as one. It's structure is the same as that of ``divDyn()``'s, so you can access the variables the same way.
+This function call will run the default Classical Rarefaction method on every interval ``300`` times, calculate the entire divDyn output matrix in every trial and averages the results. With specifying ``coll=collection_no`` and ``duplicates=FALSE``, we instruct the function to treat the multiple occurrences of the same genus in a collection as one. It's structure is the same as that of ``divDyn()``'s, so you can access the variables the same way. 
 
 ```{r subDiv, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
+# to ensure alignment, the result is merged with the timescale
+cr50Merged <- merge(stages, cr50, by="stg")
+
+# and actual plot
 tp(ylim=c(0,100), ylab="Subsampled richness")	
-lines(stages$mid, cr50$divRT, lwd=2)
+lines(cr50Merged$mid, cr50Merged$divRT, lwd=2)
 ```
 
 That is a different overall picture. Note the much higher peak in the Cretaceous then before.You can also note the low variation of the series. This is an artifact of using classical rarefaction on the data: as the quota drops the curces get flatter and flatter. This is the primary reason why Shareholder Quorum Subsamping was developed (Alroy, 2010). 
@@ -343,8 +363,11 @@ sqsDD <- subsample(dats, tax="genus", bin="stg", q=0.5, type="sqs",
 Then you can plot the results with.
 
 ```{r subDivSQS, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
+# to ensure alignment, the result is merged with the timescale
+sqsDDMerged <- merge(stages, sqsDD, by="stg")
+
 tp(ylim=c(0,100), ylab="Subsampled richness (SQS, 0.5)")	
-lines(stages$mid, sqsDD$divRT, lwd=2)
+lines(sqsDDMerged$mid, sqsDDMerged$divRT, lwd=2)
 ```
 
 This is a much more accurate depiction of diversity but we still do not know much about the diversity trajectory in the Neogene. Luckily  there are estimators that are not biased by this effects. Sampled-in-bin diversities (``divSIB``) are only influenced by sampling within the interval of focus, but they have to be corrected for sampling too. 
@@ -354,7 +377,7 @@ The likely trajectory of coral diveristy through time is then:
 
 ```{r subCSIB, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 tp(ylim=c(0,80), ylab="Subsampled richness (SQS, 0.5)")	
-lines(stages$mid, sqsDD$divCSIB, lwd=2)
+lines(sqsDDMerged$mid, sqsDDMerged$divCSIB, lwd=2)
 ```
 
 includes a huge peak in the Cretaceous. 
@@ -366,8 +389,8 @@ We can get more information about what guided the taxon's history through time b
 ```{r turn, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 # turnover rates
 tp(ylim=c(0,1), ylab="per capita turnover rates")	
-lines(stages$mid, dd$extPC, lwd=2, col="red")
-lines(stages$mid, dd$oriPC, lwd=2, col="green")
+lines(ddMerged$mid, ddMerged$extPC, lwd=2, col="red")
+lines(ddMerged$mid, ddMerged$oriPC, lwd=2, col="green")
 legend("topright", legend=c("extinction", "origination"), 
   col=c("red", "green"), lwd=2)
 ```
@@ -416,14 +439,18 @@ azdat <- dats[dats$ECOLOGY=="az" | dats$ECOLOGY=="ap", ]
 # divDyn
 zDD <- divDyn(zdat, tax="genus", bin="stg")
 azDD <- divDyn(azdat, tax="genus", bin="stg")	
+
+# merge with timescale for plotting 
+zDDMerged <- merge(stages, zDD, by="stg")
+azDDMerged <- merge(stages, azDD, by="stg")
 ```
 
 The difference in the diversity trajectories of the two group is striking, even with the raw patterns. You are invited to check the difference with subsampling, but as the preservation potential is similar, it is likely that subsampling won't affect relative numbers.
 
 ```{r zazdiv, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 tp(ylim=c(0,200), ylab="Raw richness")	
-lines(stages$mid, zDD$divRT, lwd=2, col="blue")
-lines(stages$mid, azDD$divRT, lwd=2, col="orange")
+lines(zDDMerged$mid, zDDMerged$divRT, lwd=2, col="blue")
+lines(azDDMerged$mid, azDDMerged$divRT, lwd=2, col="orange")
 
 # legend function
 legZAZ <- function(...) 
@@ -439,8 +466,8 @@ But what about turnover? You can contrast the extinction rates of the two groups
 # plot
 tp(ylim=c(0,1), ylab="Per capita extinctions")	
 # lines
-lines(stages$mid, zDD$extPC, lwd=2, col="blue")
-lines(stages$mid, azDD$extPC, lwd=2, col="orange")
+lines(zDDMerged$mid, zDDMerged$extPC, lwd=2, col="blue")
+lines(azDDMerged$mid, azDDMerged$extPC, lwd=2, col="orange")
 # legend
 legZAZ("topleft")
 ```
@@ -451,8 +478,8 @@ Overall, the two series are quite similar. Z corals appear to be somewhat more a
 # plot
 tp(ylim=c(0,1), ylab="Per capita originations")	
 # lines
-lines(stages$mid, zDD$oriPC, lwd=2, col="blue")
-lines(stages$mid, azDD$oriPC, lwd=2, col="orange")
+lines(zDDMerged$mid, zDDMerged$oriPC, lwd=2, col="blue")
+lines(azDDMerged$mid, azDDMerged$oriPC, lwd=2, col="orange")
 # legend
 legZAZ("topleft")
 ```
@@ -480,18 +507,19 @@ You can visualize these with dots. The results for origination rates indicate th
 
 ```{r zazoriSel, echo= TRUE, eval=TRUE,plot=TRUE, fig.height=5.5}
 tp(ylim=c(0,1), ylab="Per capita originations")	
-lines(stages$mid, zDD$oriPC, lwd=2, col="blue")
-lines(stages$mid, azDD$oriPC, lwd=2, col="orange")
+lines(zDDMerged$mid, zDDMerged$oriPC, lwd=2, col="blue")
+lines(azDDMerged$mid, azDDMerged$oriPC, lwd=2, col="orange")
 legZAZ("topleft")
 
 # display selectivity with points
 # select the higher rates
-selIntervals<-cbind(zDD$oriPC[rs$ori], azDD$oriPC[rs$ori])
+selIntervals<-cbind(zDDMerged$oriPC[rs$ori], azDDMerged$oriPC[rs$ori])
 groupSelector<-apply(selIntervals, 1, function(x) x[1]<x[2])
+
 # draw the points
-points(stages$mid[rs$ori[groupSelector]], azDD$oriPC[rs$ori[groupSelector]],
+points(azDDMerged$mid[rs$ori[groupSelector]], azDDMerged$oriPC[rs$ori[groupSelector]],
   pch=16, col="orange", cex=2)
-points(stages$mid[rs$ori[!groupSelector]], zDD$oriPC[rs$ori[!groupSelector]],
+points(zDDMerged$mid[rs$ori[!groupSelector]], zDDMerged$oriPC[rs$ori[!groupSelector]],
   pch=16, col="blue", cex=2)
 ```
 
@@ -500,18 +528,19 @@ Extinction rate results are:
 
 ```{r zazextSel, echo= TRUE, eval=TRUE, plot=TRUE, fig.height=5.5}
 tp(ylim=c(0,1), ylab="Per capita extinctions")	
-lines(stages$mid, zDD$extPC, lwd=2, col="blue")
-lines(stages$mid, azDD$extPC, lwd=2, col="orange")
+lines(zDDMerged$mid, zDDMerged$extPC, lwd=2, col="blue")
+lines(azDDMerged$mid, azDDMerged$extPC, lwd=2, col="orange")
 legZAZ("topleft")
 
 # display selectivity with points
 # select the higher rates
-selIntervals<-cbind(zDD$extPC[rs$ext], azDD$extPC[rs$ext])
+selIntervals<-cbind(zDDMerged$extPC[rs$ext], azDDMerged$extPC[rs$ext])
 groupSelector<-apply(selIntervals, 1, function(x) x[1]<x[2])
+
 # draw the points
-points(stages$mid[rs$ext[groupSelector]], azDD$extPC[rs$ext[groupSelector]],
+points(azDDMerged$mid[rs$ext[groupSelector]], azDDMerged$extPC[rs$ext[groupSelector]],
   pch=16, col="orange", cex=2)
-points(stages$mid[rs$ext[!groupSelector]], zDD$extPC[rs$ext[!groupSelector]],
+points(zDDMerged$mid[rs$ext[!groupSelector]], zDDMerged$extPC[rs$ext[!groupSelector]],
   pch=16, col="blue", cex=2)
 ```
 

@@ -1,0 +1,105 @@
+---
+title: Setting up GPlates on Windows 11
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- GPlates-2.3.0
+format:
+  html:
+    embed-resources: true
+---
+
+
+# Requirements
+
+- You will need either a **Windows**, **Mac** or **Linux** computer to complete the exercises.
+- **Android** and **iOS** (e.g. iPad) will not be able to run GPlates!
+
+If you do not have a compatible operating system, it is strongly recommended to get such a computer, as many advanced software are not available on mobile platforms. For the sake of these exercises you can go to the CIP-room at GeoZentrum and use the computers there. 
+
+# Downloading GPlates
+
+The GPlates desktop application can be downloaded from [the website of the GPlates project](https://gplates.org/).
+![](images/setup/1.png)
+
+Clicking on 'Latest GPlates release v2.3' will open up the GPlates download page.
+
+![](images/setup/2.png)
+
+Here you can download both the source code (that programmers edit) or the so-called 'binaries' that are compiled from this source code, which the computer can run as program. You need the binaries to run GPlates.
+If you scroll down, you will see the download links:
+
+![](images/setup/3.png)
+
+Here you can select what you want to download. 
+- If you are a **Windows** user, click the button next to **gplates_2.3.0_win64.exe**. 
+- If you are **Mac** user, you need **gplates_2.3.0_Darwin-x86_64.dmg**. 
+
+You don't even need to specify your Name or email, just click on **University** and then you should be able to get the download link.
+
+This tutorial will use GPlates under Windows 11. 
+
+![](images/setup/4.png)
+
+When you click on the **Get download link(s)** button below, the page will be updated and you will see the download link. 
+
+
+![](images/setup/5.png)
+
+Click on this link to start downloadin the GPlates installer.
+This installer is about 225MB. Depending on your internet connection, this might take a bit of time. 
+
+* * *
+<br>
+
+# Installing GPlates (on Windows 11)
+
+This tutorial guides you through installing GPlates on Windows. 
+
+First you have to double click on the downloaded installer. 
+
+![](images/setup/6.png)
+
+Normally the *User Account Control* of Windows pop up a window, reminding you to give permission to install the program. Click on **Yes** to continue. 
+
+![](images/setup/7.png)
+
+Then the GPlates installer wizard starts. As instructed, click on **Next** to continue. 
+
+![](images/setup/8.png)
+
+You have to access the license terms to use the program, hit **I Agree** to continue.
+
+![](images/setup/9.png)
+
+Then the installer asks you whether you want to add GPlates to the **PATH** or not. 
+
+*Side note for computer people: The PATH is a so-called [system environment variable](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them), a place to store specific information, in this case text. The PATH is a set of locations in the file system (path to folders), which is used by the operating system to find executable files. The executable of GPlates (gplates.exe) has a command line interface, which can be used used from the terminal. Adding the folder where GPlates is installed to the PATH allows the OS to find the executable, regardless of what your current directory is.* 
+
+You can keep the setting on **Do not add GPlates to the system PATH**, unless you know what you are doing and actually want to do this. If you want to add a desktop icon, you can also opt in for that by clicking the button next to it (not necessary). Click **Next** to continue.
+
+![](images/setup/10.png)
+
+Then the installer will ask you where exactly you want to put the GPlates files. The default location should work fine. Click **Next** to continue.
+
+![](images/setup/11.png)
+
+After this step the installer will ask you where exactly you want to put the GPlates program among the start menu shortcuts. Unless you have a strong preference, you can continue by clicking **Install**. 
+
+
+![](images/setup/12.png)
+
+The installer will then install all files of the GPlates application. Depending on your system, this might take a minute or so. 
+
+![](images/setup/13.png)
+
+Once the installer is done, you will be instructed to close it. You can do that by hitting **Finish**. The install process is then complete.
+
+![](images/setup/14.png)
+
+
+

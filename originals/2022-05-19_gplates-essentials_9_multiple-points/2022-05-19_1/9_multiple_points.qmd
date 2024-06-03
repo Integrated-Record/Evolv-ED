@@ -1,0 +1,113 @@
+---
+title:  "Reconstructing actual data"
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- GPlates-2.3.0
+format:
+  html:
+    embed-resources: true
+---
+
+# Reconstructing multiple points
+
+Understanding how [individual points are reconstructed]({{site.baseurl}}singlepoint) is the basis for reconstructing more complicated data.
+
+To illustrate this, let's reconstruct the approximate past positions of fossil occurrences of the *Glossopteris* genus!
+
+
+# About *Glossopteris*
+
+Members of the *Glossopteris* (Brongniart, 1831) genus belong in the group of seed ferns (Pteridospermatophyta). They were forming forests in the Permian period. The genus got its name from the shape of their leaves (tongue + fern):
+
+![](images/multipoint/glossopteris-leaves.png)
+
+*An example from Australia ([Source](https://www.researchgate.net/publication/331462715_Ancient_plants_escaped_the_end-Permian_mass_extinction/figures?lo=1))*
+
+![](images/multipoint/stem.jpeg)
+
+*Fossilized wooden stem ([Source](http://petrifiedwoodmuseum.org/AnatomyGlossopterisStem.htm))*
+
+Eduard Suess noted already in the 19th century that the occurrences of this genus seems to form a pattern, and their sources could be connected geographically (he named this the supercontinent *Gondwanaland*, after Gondwana, an area in India where this seed fern occurs). Later, among other species (such as *Lystrosaurus* and *Mesosaurus*), this has been used a main argument for arguing that some continental plates were connected together:
+
+![](images/multipoint/glossopteris-distribution.webp)
+
+This genus is also represented in the [Paleobiology Database](https://paleobiodb.org/), the largest fossil occurrence database that we have. You can check out the current distribution of these occurrences in the [PBDB-Navigator](https://paleobiodb.org/navigator/).
+
+![](images/multipoint/1.png)
+
+# Prepared occurrences
+
+Downloading these data and formatting it to be imported to GPlates is somewhat beyond the scope of the tutorial. To make this easier the coordinates are prepared in a compressed zip file. You can download them from [here](download/Glossopteris.zip).
+
+Export the downloaded zip file (in Windows 11, right-click on the file, then Extract All.. and then Extract). There are four files in this zip file:
+
+![](images/multipoint/2.png)
+
+These four files make up the standard ESRI Shapefile format. You need all of them for the data to work.
+
+# Loading the downloaded occurrences
+
+Let's open the PaleoMap rotation file and the corresponding polygons, as in the [previous tutorial]({{site.baseurl}}timerasters/#Other-tectonic-reconstructions):
+
+Use the **Open feature collection** tool to open the .shp file. 
+
+![](images/multipoint/3.png)
+
+Openning this file will open a dialogue box. 
+
+![](images/multipoint/4.png)
+
+Such shapefiles can include lots of additional information, that can be automatically assigned to the imported features. This is not the case now, so feel free to click OK.
+
+![](images/multipoint/5.png)
+
+The occurrence points should show up with the same yellow color.
+
+# Assigning plate IDs
+
+It should not be surpise by now, that if want to change the reconstruction date, the points do not move. 
+
+![](images/multipoint/6.png)
+
+The points do not move because they are not tied to the reconstruction tree, they do not have plate IDs. 
+Naturally, you could assign the IDs manually as in the [previous case]({{site.baseurl}}singlepoint), but that is not practical.
+
+Luckily, there is a tool, that works with **all feature collections**. To assign the plate IDs automatically, go to the **Features** / **Assign Plate IDs** menu item!
+
+![](images/multipoint/7.png)
+
+This will open up a dialogue window, where you first have to select the *Partitioning Layer*, i.e. the terrane polygons:
+
+![](images/multipoint/8.png)
+
+... and click **Next**! Then you nee to select the layers to **be partitioned**. This is the occurrences of *Glossopteris*:
+
+![](images/multipoint/9.png)
+
+After that, click **Next**! The next window allows you to fine tune how the plate assignment will happen:
+
+![](images/multipoint/10.png)
+
+For instance, you might want to copy the appeareance and disappearance dates:
+
+![](images/multipoint/11.png)
+
+Then hit **Apply**! Since the reconstruction age in the window is already set to a past date, you can already see that:
+- the points changed color
+- and are now following the continents.
+
+![](images/multipoint/12.png)
+
+You can move the age slider back to the Permian, and see the original position of the *Glossopteris* fossils!
+
+![](images/multipoint/13.png)
+
+Now you should know everything to complete your [assignment]({{site.baseurl}}assignment/)!
+
+
+

@@ -1,0 +1,69 @@
+---
+title:  "An entire plate tectonic model"
+author:
+  - name: Ádám T. Kocsis 
+    orcid: 0000-0002-9028-665X
+    affiliations:
+      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
+toc: true
+resources:
+- GPlates-2.3.0
+format:
+  html:
+    embed-resources: true
+---
+
+# Load in a complete model
+
+To perform actual reconstructions, we need 1) features that move, and 2) a reconstruction tree (rotation file).
+The current default model in GPlates 2.3 is a combination model (EarthByte Global Rotation Model) used in [Müller et al. 2019](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018TC005462), [Young et al. 2019](https://www.sciencedirect.com/science/article/pii/S1674987118301373) and [Cao et al. 2021](https://www.sciencedirect.com/science/article/pii/S1342937X20303051). 
+
+These feature collections are included by default among the example files of the GPlates Desktop application. You can use the **Open Feature Collection** menu item to open these. Let's open the continental polygons (**GeoData/FeatureCollections/ContinentalPolygons/Global_EarthByte_GPlates_PresentDay_ContinentalPolygons.gpmlz**) and the matching rotation file (**GeoData/FeatureCollections/Rotations/Muller2019-Young2019-Cao2020_CombinedRotations.rot**) files! After that you should see a similar image:
+
+
+![](images/model/1.png)
+
+You can also fill the polygons to make the features more prominent (also, the projection is changed to *Rectangular*):
+
+
+![](images/model/2.png)
+
+This model is fully linked by default. If you go anywhere in time and start to play the animation, the continents will move, as they should:
+
+![](images/model/3.png)
+
+# Configure animation
+
+The animation triggered by the play button can be configured in detail under the **Reconstruction->Configure Animation...** menu item.
+
+![](images/model/4.png)
+
+You can set the interval of the animation (**Animation from** and **to**), as well as the increment time passing between frames. You can also set the rate of the rendered frames (**Frames per second**). The configuration below will result in a much smoother, but slower transition:
+
+![](images/model/5.png)
+
+*Note that the speed of the animation will be limited by the processing power of your computer (the images still have to be calculated!).*
+
+
+# Exporting series of images
+
+Similar to exporting indiviual snapshots, you can also export a series of images. For this, you need to go to the **Reconstruction -> Export** menu item.
+
+
+![](images/model/6.png)
+
+By default, the window opens up with *Export Time Sequence of Snapshots* selected. 
+
+Similar to the individual snapshots, you first have to select what you want to export, and what the target directory is. [See this point](features/#exporting-snapshots) on how to configure these.
+
+![](images/model/7.png)
+
+For the sake of this exercise, I have selected to export png images. You can configure the sequence (from, to and increment) similar to how you configured the animations. In this case, a new image will be drawn for every 500ka between 200Ma and 0Ma.
+
+![](images/model/8.png)
+
+Click on **Begin Export** to save the files.
+
+
+
+

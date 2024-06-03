@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Authoring tutorials 
-subtitle: Writing tutorials for Evolv-ED
-permalink: /contribute/writetutorials/
+title: Authoring articles 
+subtitle: Writing articles for Evolv-ED
+permalink: /contribute/writearticles/
 hero_image: "/images/heros/pexels-photo-9202120.jpeg"
 menubar_toc: true
 ---

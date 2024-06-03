@@ -11,6 +11,8 @@
     - title: Advanced R
       author: Hadley Wickham
       link: http://adv-r.had.co.nz/
+    - title: R charts
+      link: https://r-charts.com/
 - id: Python
   logo: images/logos/software/RlogoNew.png
   primaryuse: "General, procedural data analysis in physical chemical disciplines."
@@ -34,7 +36,7 @@
   citation:
 - id: chronosphere_R 
   logo: images/logos/software/chronosphere_rhex_500.png
-  website: "https://divdyn.github.io/"
+  website: "https://chronosphere.info/r_client/"
   display: chronosphere (R)
   cran: "https://cran.r-project.org/package=chronosphere"
   longName: "Evolved Earth System Variables for R"

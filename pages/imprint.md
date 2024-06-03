@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Imprint 
+title: Imprint and Contact
 permalink: /imprint/
 hero_image: "/images/heros/pexels-photo-2289411.jpeg"
 ---

@@ -91,9 +91,9 @@ collections:
 # the automatic page generator
 page_gen-dirs: true
 page_gen:
-- data: 'tutorialversions'
-  template: 'tutorials'
-  dir: 'tutorials'
+- data: 'articleversions'
+  template: 'articles'
+  dir: 'articles'
   index_files: false
   version: 'version'
   datum: 'datum'
@@ -141,3 +141,12 @@ page_gen:
   image: 'image'
   description: 'description'
   subcategories: 'subcategories'
+- data: 'topics'
+  template: 'one_topic'
+  dir: 'articles/guides'
+  index_files: false
+  title: 'topic'
+  name: 'topic'
+  image: 'image'
+  description: 'description'
+  hero_image: 'hero_image'

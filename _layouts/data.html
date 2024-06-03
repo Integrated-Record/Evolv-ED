@@ -63,11 +63,11 @@ menubar: data_menu
  <div class="columns">
  <div class="column is-12">
 <div id="tutbox" class="box">
-  <h2 id="tutorials">Tutorials</h2>
+  <h2 id="articles">Articles</h2>
   <hr>
 	<!-- Get which are this resrouce: relevant-->
 	{% assign relevant = "" | split: "," %}
-	{% for tut in site.data.tutorialversions %}
+	{% for tut in site.data.articleversions %}
 		{% assign criterion = tut.data| where: 'id', page.id %}
 		{% assign fits = criterion | size %}
 		{% if fits > 0 %}
@@ -81,7 +81,7 @@ menubar: data_menu
 	</thead>
 	<tbody>
 	  <!-- Go through all tutorials -->
-	  {% for tut in site.data.tutorials %}
+	  {% for tut in site.data.articles %}
 		<!-- Filter relevant tutorials to this tutorial -->
 		{% assign these = relevant | where: 'tutorial', tut.id %}
 		<!-- Sort these by date -->
@@ -91,7 +91,7 @@ menubar: data_menu
 			<!-- select the most up-to date -->
 			{% assign tv = theseSorted[0] %}
 		  <tr>
-			<td style="text-align: left"> <a href="{{site.url}}{{site.baseurl}}/tutorials/{{tv.tutorial}}-{{tv.version}}.html">{{ tv.title }} </a></td>
+			<td style="text-align: left"> <a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}.html">{{ tv.title }} </a></td>
 			<td>
 			  <div class="field is-grouped is-grouped-multiline">
 			  {% for res in tv.dependencies%}

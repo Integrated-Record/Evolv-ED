@@ -1,8 +1,6 @@
 - name: Home
   link: /
-- name: Contact
-  link: /contact/
-- name: Imprint
+- name: Imprint and Contact
   link: /imprint/
 - name: Docs 
   link: /docs/
