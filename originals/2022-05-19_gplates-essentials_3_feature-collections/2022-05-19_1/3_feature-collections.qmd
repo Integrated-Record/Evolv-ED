@@ -1,18 +1,3 @@
----
-title:  "Basic features"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 GPlates comes with a lot of example data that helps you better understand how the program works.
 These data can be loaded as **feature collections**. 
 

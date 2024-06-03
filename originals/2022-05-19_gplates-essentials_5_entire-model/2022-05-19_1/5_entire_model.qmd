@@ -1,18 +1,3 @@
----
-title:  "An entire plate tectonic model"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # Load in a complete model
 
 To perform actual reconstructions, we need 1) features that move, and 2) a reconstruction tree (rotation file).

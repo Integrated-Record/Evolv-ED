@@ -1,21 +1,6 @@
----
-title:  "Reconstructing actual data"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # Reconstructing multiple points
 
-Understanding how [individual points are reconstructed]({{site.baseurl}}singlepoint) is the basis for reconstructing more complicated data.
+Understanding how [individual points are reconstructed](singlepoint) is the basis for reconstructing more complicated data.
 
 To illustrate this, let's reconstruct the approximate past positions of fossil occurrences of the *Glossopteris* genus!
 
@@ -52,7 +37,7 @@ These four files make up the standard ESRI Shapefile format. You need all of the
 
 # Loading the downloaded occurrences
 
-Let's open the PaleoMap rotation file and the corresponding polygons, as in the [previous tutorial]({{site.baseurl}}timerasters/#Other-tectonic-reconstructions):
+Let's open the PaleoMap rotation file and the corresponding polygons, as in the [previous tutorial](timerasters/#Other-tectonic-reconstructions):
 
 Use the **Open feature collection** tool to open the .shp file. 
 
@@ -75,7 +60,7 @@ It should not be surpise by now, that if want to change the reconstruction date,
 ![](images/multipoint/6.png)
 
 The points do not move because they are not tied to the reconstruction tree, they do not have plate IDs. 
-Naturally, you could assign the IDs manually as in the [previous case]({{site.baseurl}}singlepoint), but that is not practical.
+Naturally, you could assign the IDs manually as in the [previous case](singlepoint), but that is not practical.
 
 Luckily, there is a tool, that works with **all feature collections**. To assign the plate IDs automatically, go to the **Features** / **Assign Plate IDs** menu item!
 
@@ -107,7 +92,7 @@ You can move the age slider back to the Permian, and see the original position o
 
 ![](images/multipoint/13.png)
 
-Now you should know everything to complete your [assignment]({{site.baseurl}}assignment/)!
+Now you should know everything to complete your [assignment](assignment/)!
 
 
 

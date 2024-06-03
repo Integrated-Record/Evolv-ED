@@ -1,28 +1,3 @@
----
-title: Plotting PALEOMAP Paleocoastlines with modified projection centers
-resource-path: ['../../../']
-bibliography: 'bibliography/evolved.bib'
-#title-block-banner: '../../../images/ocean_sea_water_seascape_nature_3840x2160.jpg' 
-author:
-  - name: Kocsis, Adam 
-    url: "../../../adam_kocsis.html" 
-toc: true
-categories: 
-- paleogeography
-resources:
-- R
-- sf
-- chronosphere(R)
-- PALEOMAP
-listing:
-  id: "resources"
-  template: ../../../templates/resources.ejs
-  contents: 
-  - ../../../data/resources.yml
-  include:
-    title: "{R,PALEOMAP,sf-1.75,chronosphere(R)}*" 
----
-
 ::: {#resources}
 :::
 

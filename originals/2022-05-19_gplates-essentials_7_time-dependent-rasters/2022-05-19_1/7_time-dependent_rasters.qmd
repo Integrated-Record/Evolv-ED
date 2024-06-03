@@ -1,18 +1,3 @@
----
-title:  "Time-dependent rasters"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # Other tectonic reconstructions
 
 There are two other tectonic reconstructions that come bundled with GPlates. 
@@ -157,5 +142,5 @@ This is because you are opening regular image files that were produced with soft
 ![](images/multiraster/20.png)
 
 These reconstructions will also move with time (as the PaleoDEMs), and they look quite cool.
-However, none of these are useful if we cannot put information on these maps, i.e. to be able to [reconstruct the paleocoordinates of user-defined present-day coordinates]({{site.baseurl}}singlepoint). 
+However, none of these are useful if we cannot put information on these maps, i.e. to be able to [reconstruct the paleocoordinates of user-defined present-day coordinates](singlepoint). 
 

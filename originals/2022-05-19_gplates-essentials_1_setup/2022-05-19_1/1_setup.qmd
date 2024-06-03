@@ -1,19 +1,3 @@
----
-title: Setting up GPlates on Windows 11
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
-
 # Requirements
 
 - You will need either a **Windows**, **Mac** or **Linux** computer to complete the exercises.

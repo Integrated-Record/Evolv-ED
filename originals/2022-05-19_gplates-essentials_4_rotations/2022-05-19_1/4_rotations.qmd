@@ -1,18 +1,3 @@
----
-title:  "Understanding rotations"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # The duration of features
 
 Geometric vector features on their own do not say much about plate tectonic evolution, they just represent the spatial extent of units as points, lines or polygons. In themselves they only have durations.

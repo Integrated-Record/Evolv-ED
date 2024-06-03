@@ -1,26 +1,3 @@
----
-title: "Writing Quarto Tutorials for Evolv-ED"
-bibliography: 'references.bib'
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- R-4.4.0
-- Quarto-1.3.50
-- yaml
-- html 
-- bibtex
-- pandoc
-- Database
-format:
-  html:
-    embed-resources: true
----
-
-
 ## Basics
 
 This `.html` tutorial was built using a [Quarto](https://quarto.org/) markdown document, which can be accessed from the **Files** tab above, along with all other template files. 

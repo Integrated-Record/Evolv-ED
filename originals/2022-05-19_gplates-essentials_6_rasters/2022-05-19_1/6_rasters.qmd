@@ -1,18 +1,3 @@
----
-title:  "Loading raster data"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # About raster data
 
 Rasters are the other kind of structures besides vector information that people frequently use to store spatial data.
@@ -83,5 +68,5 @@ The difference between this raster and the previous one is that thi sis actually
 
 In reality this, is also just a set of numbers: every color that you see is made up of three different numbers: the intensity of the red, green and blue subpixels. These cannot be manipulated in GPlates. 
 
-These rasters mostly serve as visualization purpose and guidelines for reconstructions. They do not change when the reconstruction date is changed - unless they are [time-dependendent rasters]({{site.baseurl}}timerasters). 
+These rasters mostly serve as visualization purpose and guidelines for reconstructions. They do not change when the reconstruction date is changed - unless they are [time-dependendent rasters](timerasters). 
 

@@ -1,23 +1,8 @@
----
-title:  "Single point reconstructions"
-author:
-  - name: Ádám T. Kocsis 
-    orcid: 0000-0002-9028-665X
-    affiliations:
-      - name: GeoZentrum Nordbayern, Friedrich-Alexander-Universität Erlangen-Nürnberg, Loewenichstr. 28, D-91054, Erlangen, Germany
-toc: true
-resources:
-- GPlates-2.3.0
-format:
-  html:
-    embed-resources: true
----
-
 # Introduction
 
 All plate tectonic reconstruction reach their full utility, when we are able to tell where specific places, localities with present-day coordinates were in the past at a given point in time. 
 
-To illustrate the problems, let's open the PaleoMap rotation file and the corresponding polygons, as in the [previous tutorial]({{site.baseurl}}timerasters/#Other-tectonic-reconstructions):
+To illustrate the problems, let's open the PaleoMap rotation file and the corresponding polygons, as in the [previous tutorial](timerasters/#Other-tectonic-reconstructions):
 
 ![](images/singlepoint/1.png)
 
