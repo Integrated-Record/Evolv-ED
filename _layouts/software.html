@@ -96,12 +96,12 @@ menubar: data_menu
 			<!-- select the most up-to date -->
 			{% assign tv = theseSorted[0] %}
 		  <tr>
-			<td style="text-align: left"> <a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}/">{{ tv.title }} </a></td>
+			<td style="text-align: left"> <a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}.html">{{ tv.title }} </a></td>
 			<td>
 			  <div class="field is-grouped is-grouped-multiline">
 			  {% for res in tv.dependencies%}
 			  <div class="control">
-				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}/"><div class="tags">
+				<a href="{{site.url}}{{site.baseurl}}/software/{{res.id | downcase}}.html"><div class="tags">
 				  <!-- Search for the resource's long name -->
 				  {% for thisRes in site.data.software %}
 
