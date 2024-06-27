@@ -36,38 +36,39 @@ There are two basic kinds of documenst on *Evolv-ED:*
 
 ### Article types
 
-There are three major articles types currently on *Evolv-ED*:
+There are wo major articles types currently on *Evolv-ED*:
 
-1. **How-to**s (short, technical guidebooks)
-2. **Tutorial**s (longer, detailed instructions on conducting analyses in a subject)
-3. **Research log**s (documentation of scientific research)
+- **Guides**: these are either **How-to**s short, technical guidebooks), or **Tutorial**s (longer, detailed instructions on conducting analyses in a subject  
+- **Research log**s: documentation of scientific research.  
+
 
 <div class="explanation" markdown="1"> 
 
-### 1. How-to articles
+#### *Guides*
 
 <span class="explainhead">How-to</span> articles are short guidebooks that have a **clearly stated, distinct, technical aim**, which is achieved using a set of tools/resources. Such aims include bringing data items into various forms, deriving specific variables from basic data sources, calculation of specific statistics or the derivations of figure types - to mention a few. The steps needed to reach this goal is elaborated step-by-step, focusing on the lucid, detailed, complete documentation of the process. Most how-to guides  connect multiple [data and/or software](#data-and-software-pages) resources, but this is not a necessity.
 
 
-### 2. Tutorials
-
 <span class="explainhead">Tutorial</span> articles are similar to [how-to](#1-how-to-articles)s, and also include a step-by-step description of a scientific pipeline. These are longer, and have a **larger-scale, more abstract aim** that is targeted at one or more **scientific question(s)**. This necessitates a **broader frame** and a shift in the focus of text: **tutorials** include the **rationale** of why particular analytical decisions are made, rather than the pure documentation of work steps.
 
 
-### 3. Research logs
+#### *Research logs*
 
 <span class="explainhead">Research logs</span> (not yet!) are meant to accompany scientific papers that typically cannot accomodate the detailed desciption of the work steps they report due to length constraints. Nevertheless, the accurate description of how a particular scientific results are derived is crucially important for a sustainably reproducible research environment. Evolv-ED offers a platform on which these can be communicated, including the eventual updating of the research pipeline (updated versions of research logs). The issue of constantly changing data is getting tackled together with the related [chronosphere project]({{site.url}}{{site.baseurl}}/about/related/#chronosphere), authors interested in writing **research logs** are encouraged to utilize this project's features. Reserach logs will be included in a large-scale, openly-developed study on reproducibilty and replicability in eco-evolutionary research.
 
 </div>
+
 
 ### Tutorial and log series
 
 Each of the article types above is expected to be completable in a single sitting (up to 2 hours), which is often not enough to provide a detailed introduction to a subject or to document a comprehensive study. Therefore, *Evolv-ED* offers the potential to **link multiple articles together** in a sequential fashion.  
 
 
-Articles can be found under the [Articles]() menu item above, as well as on the individual pages about data and software that are demonstrated in these tutorials. 
+Articles can be found under the Articles main menu item, as well as on the individual pages about data and software that are demonstrated in these tutorials. Guides are organized into scientific topics. 
 
 The articles on *Evolv-ED* are permanently deposited publications. 
+
+* * * 
 
 ## 2. Data and software pages 
 

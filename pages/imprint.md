@@ -14,3 +14,11 @@ The website was made by [Ádám T. Kocsis]({{site.url}}{{site.baseurl}}/team/peo
 
 ### Hero backgroud image sources
 
+- [Paleogeography - Rift Canyon](https://pxhere.com/en/photo/1087233)
+- [Paleoecology - Coastal outcrop](https://www.pexels.com/photo/photo-of-a-rocky-coastline-13694184/)
+
+### Banner images
+
+- [Topics::Geology - World Map](https://en.wikipedia.org/wiki/World_map#/media/File:World_map.png)
+- [Topics::Ecology - Humming bird](https://www.oneearth.org/hummingbirds-small-but-mighty-impact/)
+
