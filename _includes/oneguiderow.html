@@ -1,0 +1,54 @@
+<!--  Find the most up-to-date version -->
+{% assign relevant = site.data.articleversions | where: 'tutorial', current.id %}
+
+<!-- Sort these by date -->
+{% assign theseSorted = relevant | sort: 'datum' | reverse %}
+
+<!-- select the most up-to date -->
+{% assign uptodate = theseSorted[0] %}
+
+<div class="box oneguidebox">
+	<div class="columns">
+		<div class="column is-3" style="text-align: center">
+			<a href="{{site.url}}{{site.baseurl}}/articles/{{uptodate.tutorial}}-{{uptodate.version}}.html">
+			{% if uptodate.thumbnail %}
+				<img src="{{site.url}}{{site.baseurl}}/originals/{{uptodate.tutorial}}/{{uptodate.datum}}_{{uptodate.version}}/{{uptodate.thumbnail}}"
+					style="max-height: 200px">
+			{% else%}
+				<img src="{{site.url}}{{site.baseurl}}/images/documents/tutorialdoc.png" style="max-height: 130px">
+			{% endif%}
+
+		</a>
+		</div>
+		<div class="column is-9" style="padding-top: 1.5rem;">
+			<a href="{{site.url}}{{site.baseurl}}/articles/{{uptodate.tutorial}}-{{uptodate.version}}.html">
+			<h3>{{uptodate.title}} </h3>
+			</a>
+			<div style="padding-bottom: 0.5rem">
+				{% for author in uptodate.authors %}
+					{% unless forloop.last %}
+						{{author}},&nbsp;
+					{% else %}
+						{{author}}
+					{% endunless %}
+				{% endfor %}
+			</div>
+
+			<div  style="padding-bottom: 0.5rem">
+			  <p>
+				 <strong>Latest:</strong> v{{uptodate.version}}&nbsp;|&nbsp;
+			  <span style="font-style:italic">{{uptodate.datum}}</span>
+			  </p>
+			</div>
+			<div  style="padding-bottom: 0.5rem">
+			<p><strong>Description: </strong>{{uptodate.description}} </p>
+			</div>
+
+			<p><strong>Resources: </strong></p>
+			{% assign entity = uptodate %}
+
+			{% include alldependencies.html %}
+
+		</div><!-- column-->
+	</div> <!-- columns-->
+</div> <!-- guidebox-->

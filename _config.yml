@@ -115,6 +115,8 @@ page_gen:
   display: 'display'
   extension: 'html'
   extends: 'extends'
+  source: 'source'
+  license: 'license'
 - data: 'data'
   template: 'data'
   dir: 'data'

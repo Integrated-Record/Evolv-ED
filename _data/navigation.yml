@@ -12,8 +12,8 @@
     #   link: /about/related/
 - name: Articles 
   dropdown:
-     # - name: Guides 
-     #   link: /articles/guides/
+     - name: Guides 
+       link: /articles/guides/
      # - name: Research Logs 
      #   link: /articles/
      - name: Index

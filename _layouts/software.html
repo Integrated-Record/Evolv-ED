@@ -13,7 +13,7 @@ menubar: data_menu
 <link rel="stylesheet" type="text/css" href="{{site.url}}{{site.baseurl}}/assets/css/jquery.dataTables.min.css" />
 
 
-<nav class="breadcrumb" aria-label="breadcrumbs">
+<nav class="breadcrumb" aria-label="breadcrumbs" style="padding-bottom:0.5rem">
   <ul>
     <li><a href="{{site.url}}{{site.baseurl}}">Evolv-ED</a></li>
     <li><a href="{{site.url}}{{site.baseurl}}/software/">Software</a></li>
@@ -40,6 +40,14 @@ menubar: data_menu
 		<hr>
 		<div class="box">
 		<strong>Website</strong>: <a href="{{page.website}}">{{page.website}}</a> <br>
+		{% if page.license %}
+			<strong>License</strong>: {{page.license}}
+			<br>
+		{% endif %}
+		{% if page.source %}
+			<strong>Source</strong>: <a href="{{page.source}}">{{page.source}}</a>
+			<br>
+		{% endif %}
 		</div>
 	</div>
 	<div class="column is-1-desktop">
@@ -49,14 +57,56 @@ menubar: data_menu
 	</div>
 </div>
 
+{% if page.description %}
+<div class="box softwarebox">
+  <h2>Description</h2>
+  <hr>
+  <p>{{page.description}}</p>
+</div>
+
+{% endif %}
+
+{% if page.installation %}
+<div class="box softwarebox">
+  <h2>Installation</h2>
+  <hr>
+  <p>{{page.installation}}</p>
+</div>
+{% endif %}
+
 {% if page.citation %}
-<div class="box">
+<div class="box softwarebox">
   <h2>Citation</h2>
   <hr>
   <p>{{page.citation}}</p>
 </div>
 
 {% endif %}
+
+{% if page.external %}
+<div class="box softwarebox">
+  <h2>External tutorials</h2>
+  <hr>
+  <table>
+	<tr>
+	  <th>Title</th>
+	  <th>Author</th>
+	</tr>
+  {% for i in page.external %}
+	<tr>
+	  <td><a href="{{i.link}}">{{i.title}}</a></td>
+	  <td>{{i.title}}</td>
+	</tr>
+  
+  {% endfor %}
+  </table>
+</div>
+
+{% endif %}
+
+
+
+
 </div> <!-- close content tag --->
 <!-- </div> force out from main content column --->
 <!-- </div> force out from columns of main content --->

@@ -4,7 +4,9 @@
   website: "https://www.r-project.org/"
   category: Programming
   description: R is a programming and running environment developed to execute statistical calculations. It is the GNU version of the S programming language.
-  citation:
+  citation: 
+  license: GPL-2 / GPL-3
+  source: https://svn.r-project.org/R/
   primaryuse: Statistics, procedural analysis ecological and paleontological data.
   installation: 
   external:
@@ -42,11 +44,13 @@
   longName: "Evolved Earth System Variables for R"
   extends: R
   citation:
+
 - id: ffmpeg
   category: multimedia
   primaryuse: 
   logo: images/logos/software/ffmpeg.png
   citation:
+
 - id: GPlates 
   longName: 
   description: "GPlates is a plate tectonics program. Manipulate reconstructions of geological and paleogeographic features through geological time. Interactively visualize vector, raster and volume data. PyGPlates is the GPlates Python library."
@@ -54,11 +58,14 @@
   category: geology 
   primaryuse: 
   logo: images/logos/software/New_GPlates_Logo.png
+  source: https://github.com/GPlates/GPlates
+  license: GPL-2
   citation:
   external:
     - title: The official GPlates tutorials 
       author: GPlates Team
       link: https://tutorials.gplates.org/
+
 - id: rgplates 
   longName: "R interface for the GPlates Web Service and the GPlates Application" 
   category: geology 
@@ -66,6 +73,7 @@
   logo: images/logos/software/rgplates.png
   extends: R
   citation:
+
 - id: Julia 
   primaryuse: 
   logo: images/logos/software/RlogoNew.png
@@ -100,4 +108,10 @@
   logo: images/logos/software/RlogoNew.png
   category: Programming
   primaryuse: "Shell scripting. "
-
+- id: Quarto 
+  logo: images/logos/software/quarto.png
+  license: GNU GPL v2 / MIT
+  source: https://github.com/quarto-dev/quarto-cli
+  category: Publishing
+  primaryuse: "Creating documents with literate programming: tutorials, research logs and more. "
+  website: https://quarto.org/

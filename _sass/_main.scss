@@ -86,3 +86,25 @@ div.explanation{
 #newshead{
 	margin-bottom: 15px;
 }
+
+.topicheadimage{
+	filter: drop-shadow(2px 2px 2px #333);
+	border-radius: 20px;
+
+}
+
+div.box.oneguidebox{
+	padding:25px;
+	margin-bottom: 15px;
+}
+
+div.box.softwarebox{
+	margin-bottom: 15px;
+}
+
+div.courselist{
+	display: none;
+	background-color: $evo-cardhover;
+	padding:10px 10px 15px 10px;				
+	border-radius: 20px;
+}

@@ -1,0 +1,109 @@
+<!--  Find the relevant article versions -->
+{% assign relevant = "" | split: "," %}
+
+<!--  go through all article versions -->
+{% for av in site.data.articleversions %}
+	<!--  if their article id is there add it to the rellevant -->
+	{% if current.articles contains av.tutorial == %}
+			{% assign relevant = relevant | push: av %}
+	{% endif %}
+{% endfor %}
+
+<!--  Make sure that only the most up to date is selected! -->
+{% assign veryrelevant = "" | split: "," %}
+
+<!--  Get list of authors -->
+{% assign relevantauthors = "" | split: "," %}
+
+<!--  Get last update -->
+{% assign updates = "" | split: "," %}
+
+<!--  go through all articles of the course -->
+{% for article in current.articles %}
+	<!--  filter relevant to those that come from this -->
+	{% assign thisVersions = relevant | where_exp: "one", "one.tutorial contains article" %}
+
+	<!--  sort them by their datum -->
+	{% assign theseSorted = thisVersions | sort: 'datum' | reverse%}
+
+	<!--  add to the array that will be shown -->
+	{% assign veryrelevant = veryrelevant | push: theseSorted[0] %}
+
+	{% assign relevantauthors = relevantauthors | push: theseSorted[0].authors | uniq %}
+
+	{% assign updates = updates | push: theseSorted[0].datum | uniq %}
+
+{% endfor %}
+
+{% assign sortedupdate = updates | sort | reverse%}
+{% assign lastupdate = sortedupdate[0] %}
+
+
+
+<div class="box oneguidebox">
+	<div class="columns">
+		<div class="column is-3" style="text-align: center">
+			{% if current.image %}
+				<img src="{{site.url}}{{site.baseurl}}/images/courses/{{current.image}}"
+					style="max-height: 200px">
+			{% else%}
+				<img src="{{site.url}}{{site.baseurl}}/images/documents/tutorialdoc.png" style="max-height: 130px">
+			{% endif%}
+		</div>
+		<div class="column is-9" style="padding-top: 1.5rem;">
+			<h3>{{current.id}} </h3>
+			<div style="padding-bottom: 0.5rem">
+				<strong>Author(s): </strong>
+				{% for author in relevantauthors %}
+					{% unless forloop.last %}
+						{{author}},&nbsp;
+					{% else %}
+						{{author}}
+					{% endunless %}
+				{% endfor %}
+			</div>
+
+			<div  style="padding-bottom: 0.5rem">
+			  <p>
+				 <strong>Last update:</strong> 
+			  <span style="font-style:italic">{{lastupdate}}</span>
+			  </p>
+			</div>
+			<div  style="padding-bottom: 0.5rem">
+				<p><strong>Description: </strong>{{current.description}} </p>
+			</div>
+			<div style="padding-bottom: 0.5rem">
+			  <strong>List of articles: </strong>
+			  <a onclick="myFunction('courselist-{{current.id}}')">
+				<span id="show-courselist-{{current.id}}" class="icon" style="font-size:1.5rem; display:inline-flex"><i class="fas fa-caret-left"></i></span>
+				<span id="hide-courselist-{{current.id}}" class="icon" style="font-size:1.5rem; display:none"><i class="fas fa-caret-down"></i></span>
+			  </a>
+			  <div class="courselist" id="courselist-{{current.id}}" style="display:none">
+				<ol>
+				{% for av in veryrelevant %}
+					<li><a href="{{site.url}}{{site.baseurl}}/articles/{{av.tutorial}}-{{av.version}}.html">{{av.title}}</a></li>
+				{% endfor %}
+				</ol>
+			  </div>
+			</div>
+
+		</div><!-- column-->
+	</div> <!-- columns-->
+</div> <!-- guidebox-->
+
+<script>
+  function myFunction(targetID) {
+  var x = document.getElementById(targetID);
+  var y = document.getElementById("show-".concat(targetID));
+  var z = document.getElementById("hide-".concat(targetID));
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    z.style.display = "inline-flex";
+    y.style.display = "none";
+  } else {
+    x.style.display = "none";
+    z.style.display = "none";
+    y.style.display = "inline-flex";
+  }
+} </script>
+

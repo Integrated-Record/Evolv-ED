@@ -1,16 +1,38 @@
-- topic: Paleobiology
+- topic: Paleoecology
   description: Paleobiology is a discipline studying ancient life from biological perspective.
   image: images/topics/paleobiology.png
-  hero_image: "/images/heros/free-photo-of-grass-and-mountains.jpeg"
+  hero_image: "/images/heros/pexels-photo-13694184.jpeg"
   type: discipline 
 
 - topic: Paleogeography
-  description: Paleogeography is disciplien studying geography in the geological past. 
+  description: Paleogeography is discipline studying geography in the geological past. 
   image: images/topics/Map13a Early Eocene_050.jpg
+  hero_image: "/images/heros/landscape-coast-water-nature-grass-rock-1087233-pxhere.com.jpg"
+  type: discipline 
+
+- topic: Geography 
+  description: 
+  image: images/topics/geography.png
   hero_image: 
   type: discipline 
 
-# - topic: Plotting 
-#   description: Creating images from data using computation.
-#   hero_image: 
-#   type: technical 
+- topic: Ecology 
+  description: Ecology is the discipline studying the coexistence and relationships between biological organisms. 
+  image: images/topics/ecology.png
+  hero_image: "/images/heros/pexels-photo-975771.jpeg"
+  type: discipline 
+
+- topic: Plotting 
+  description: Creating images from data using computation.
+  hero_image: 
+  type: technical 
+
+- topic: Statistics and ML
+  description: Technical discipline for estimation and assessment of relationships. 
+  hero_image: 
+  type: technical 
+
+- topic: Programming and Data Wrangling
+  description: The study of practical computation via computer coding. 
+  hero_image: 
+  type: technical 

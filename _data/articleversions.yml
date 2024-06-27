@@ -60,6 +60,7 @@
   datum: 2024-05-06
   version: '2'
   topic: Paleobiology
+  description: Another temporary file  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
   tags:
    - extinction
    - origination 
@@ -98,9 +99,11 @@
   dependencies:
    - id: R 
      version: 4.4.0 
+   - id: Quarto 
+     version: 1.3.450 
   data:
 
-- title: GPlates Essentials - Setting up GPlates on Windows 11
+- title: Setting up GPlates on Windows 11
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_1_setup
@@ -115,7 +118,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Starting GPlates and the user interface
+- title: Starting GPlates and the user interface
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_2_start
@@ -130,7 +133,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Basic features
+- title: Basic features
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_3_feature-collections
@@ -145,7 +148,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Understanding rotations
+- title: Understanding rotations
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_4_rotations
@@ -160,7 +163,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - An entire plate tectonic model
+- title: An entire plate tectonic model
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_5_entire-model
@@ -175,7 +178,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Loading raster data
+- title: Loading raster data
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_6_rasters
@@ -190,7 +193,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Time-dependent rasters
+- title: Time-dependent rasters
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_7_time-dependent-rasters
@@ -205,7 +208,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Single point reconstructions
+- title: Single point reconstructions
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_8_single-points
@@ -220,7 +223,7 @@
    - id: GPlates 
      version: 2.3 
 
-- title: GPlates Essentials - Reconstructing actual data
+- title: Reconstructing actual data
   authors:
     - Ádám T. Kocsis
   tutorial: 2022-05-19_gplates-essentials_9_multiple-points

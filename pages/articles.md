@@ -31,7 +31,7 @@ You can find all available articles on this page.
 
   <table class="display" id="my-table">
 	<thead>
-		<tr><th>Title</th><th>Topic</th><th>Resources</th></tr>
+		<tr><th>Title</th><th>Date</th><th>Type</th><th>Topic(s)</th><th>Resources</th></tr>
 	</thead>
 	<tbody>
 	<!-- go through all ttutorials -->
@@ -77,21 +77,11 @@ You can find all available articles on this page.
 					<span class="tag is-white is-small">{{tag}}</span>
 				{% endfor %}
 				</div>
-				
-				
-				</div>
-				<div class="column is-3" style="flex-shrink: 1; min-height:130px; text-align:center">
-					<a href="{{site.url}}{{site.baseurl}}/articles/{{tv.tutorial}}-{{tv.version}}.html">
-					{% assign thumbnail = tv.thumbnail %}
-					{%if thumbnail %}
-						<img src="{{site.url}}{{site.baseurl}}/originals/{{tv.tutorial}}/{{tv.datum}}_{{tv.version}}/{{thumbnail}}" style="max-height: 130px">
-					{%else%}
-						<img src="{{site.url}}{{site.baseurl}}/images/documents/tutorialdoc.png" style="max-height: 130px">
-					{% endif %}
-					</a>
 				</div>
 				</div>
 				</td>
+			<td><i>{{tv.datum}}</i></td>
+			<td>{{tutorial.type}}</td>
 			<td>{{tv.topic}}</td>
 			<td>
 			  <div class="field is-grouped is-grouped-multiline">

@@ -6,38 +6,121 @@ layout: default
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     <li><a href="{{site.url}}{{site.baseurl}}">Evolv-ED</a></li>
-    <li><a href="{{site.url}}{{site.baseurl}}/articles/">Articles</a></li>
     <li><a href="{{site.url}}{{site.baseurl}}/articles/guides/">Guides</a></li>
     <li class="is-active"><a href="#" aria-current="page">{{page.title}}</a></li>
   </ul>
 </nav>
 
 <br>
-<div class="content">
-<h1>{{page.title}}</h1>
 
+<div class="content">
+
+<div class="columns">
+
+
+<div class="column is-3">
+<img src="{{site.url}}{{site.baseurl}}/{{page.image}}" class="topicheadimage"> 
+</div>
+
+
+<div class="column is-7">
+
+<h1>{{page.title}}</h1>
 <p>
 {{page.description}}
 <p>
+</div>
 
+<div class="column is-2">
+</div>
+</div>
+
+<hr>
+
+<!--  Limit to topic-->
+{% assign thistopic = site.data.articles | where_exp: "one", "one.topic contains page.title" %}
+
+
+<!--  make a list of those that are courses -->
+{% assign series = "" | split: "," %}
+
+{% for course in site.data.courses %}
+   {% assign series = series | concat: course.articles %}
+{% endfor %}
+  
 
 <h2>How-to articles</h2>
 
-<h2>Individual Tutorials</h2>
+<hr>
 
-<h2>Courses</h2>
+<!--  Limit to how-to -->
+{% assign thishowto = thistopic | where: "type", "howto" %}
 
-## How-tos
+<!--  Loop through all -->
+{% for current in thishowto %}
 
-- filter articles to how-tos (should make things faster)
-- create a single list of articles that are part of a series
-- Filter how-tos to single how-tos
-- Loop through single how-tos and display contents
+	<!--  do not show if it is part of a series! -->
+	{% unless series contains current.id %}
+
+		<!--  include the information from the most rescent -->
+		{% include oneguiderow.html %}
+
+	{% endunless%}
+
+{% endfor %}
 
 
-## Tutorials
+<br>
 
-</p>
+
+
+<!--  Limit to how-to -->
+{% assign thistutorial = thistopic | where: "type", "tutorial" %}
+
+{% assign entries = thistutorial | size %}
+
+<!--  show things if there is any -->
+{% if entries > 0  %}
+<h2>Tutorials</h2>
+{% endif %}
+
+<hr>
+
+<!--  Loop through all -->
+{% for current in thistutorial %}
+
+	<!--  do not show if it is part of a series! -->
+	{% unless series contains current.id %}
+
+		<!--  include the information from the most rescent -->
+		{% include oneguiderow.html %}
+
+	{% endunless%}
+
+{% endfor %}
+
+
+<br>
+
+
+{% assign thisCourse = site.data.courses | where_exp: "one", "one.topic contains page.title"  %}
+
+{% assign entries = thisCourse | size %}
+
+<!--  show things if there is any -->
+{% if entries > 0  %}
+<h2>Series</h2>
+
+{% for current in thisCourse %}
+
+		<!--  include the information from the most rescent -->
+		{% include onecourserow.html %}
+
+{% endfor %}
+
+{% endif %}
+
 
 </div>
+
 
