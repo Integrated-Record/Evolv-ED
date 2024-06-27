@@ -162,8 +162,8 @@ The assignments can be repeated for the 10-million year bins with the following 
 ```{r binres, echo= TRUE, eval=TRUE}
 # a. categorize interval names to bin numbers
   # categorize is the new function of the package
-  binMin<-categorize(dat[,"early_interval"],keys$binInt)
-  binMax<-categorize(dat[,"late_interval"],keys$binInt)
+  binMin<-categorize(dat[,"early_interval"],keys$tenInt)
+  binMax<-categorize(dat[,"late_interval"],keys$tenInt)
   # convert to numeric
   binMin<-as.numeric(binMin)
   binMax<-as.numeric(binMax)

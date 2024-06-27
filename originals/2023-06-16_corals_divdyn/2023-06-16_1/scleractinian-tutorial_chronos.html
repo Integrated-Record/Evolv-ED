@@ -3251,8 +3251,8 @@ Time flows forward with &#39;bin&#39;, and backward with &#39;age&#39; and &#39;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a. categorize interval names to bin numbers</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># categorize is the new function of the package</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  binMin<span class="ot">&lt;-</span><span class="fu">categorize</span>(dat[,<span class="st">&quot;early_interval&quot;</span>],keys<span class="sc">$</span>binInt)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  binMax<span class="ot">&lt;-</span><span class="fu">categorize</span>(dat[,<span class="st">&quot;late_interval&quot;</span>],keys<span class="sc">$</span>binInt)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  binMin<span class="ot">&lt;-</span><span class="fu">categorize</span>(dat[,<span class="st">&quot;early_interval&quot;</span>],keys<span class="sc">$</span>tenInt)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  binMax<span class="ot">&lt;-</span><span class="fu">categorize</span>(dat[,<span class="st">&quot;late_interval&quot;</span>],keys<span class="sc">$</span>tenInt)</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert to numeric</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  binMin<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(binMin)</span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  binMax<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(binMax)</span>
