@@ -26,6 +26,7 @@ hide_hero: true
 </div>
 
 
+
 <div class="field is-grouped is-grouped-multiline">
   <strong>Topic:&nbsp;</strong> {{page.topic}} &nbsp;|&nbsp;
   <strong>Version(s): </strong>
@@ -65,10 +66,21 @@ hide_hero: true
 	</div>
 	</a>
    {% endif %}
+
+<!-- Determine if the article is part of series or not!-->
+{% for course in site.data.courses %}
+   {% assign series = series | concat: course.articles %}
+{% endfor %}
+
 </div>
+
+<div class="columns">
+<div class="column is-11-desktop is-11-tablet is-12-mobile">
+
 <div class="tabs is-boxed">
   <ul style="margin-left:0px">
     <li class="tab is-active" onclick="openTab(event,'Resources')"><a>Software and Data</a></li>
+    {% if series contains page.tutorial %}<li class="tab" onclick="openTab(event,'Series')"><a>Series</a></li> {% endif %}
     {% if page.files %}<li class="tab" onclick="openTab(event,'Files')"><a>Files</a></li> {% endif %}
     <li  class="tab" onclick="openTab(event,'Tags')"><a>Tags</a></li>
   </ul>
@@ -108,6 +120,31 @@ hide_hero: true
 		{% endfor %}
 		</div>
 	</li>
+	{% if series contains page.tutorial %}
+	<li id="Series" class="content-tab">
+	 {% for course in site.data.courses %} 
+		{% if course.articles contains page.tutorial %}
+			<h3>{{course.id}}</h3>
+			{% assign counter = '1' %}
+			{% for one in course.articles %}
+
+				{% assign these = site.data.articleversions | where: 'tutorial', one %}
+				{% assign theseSorted = these | sort: 'datum' | reverse%}
+				{% if theseSorted[0].tutorial != page.tutorial %}
+				<!-- cannot use ol because in a tab..-->
+					<p><a href="{{site.url}}{{site.baseurl}}/articles/{{theseSorted[0].tutorial}}-{{theseSorted[0].version}}.html">{{counter}}. {{theseSorted[0].title}}</a></p>
+				{% else %}
+					<p>{{counter}}. {{theseSorted[0].title}}</p>
+				{% endif %}
+					
+				{% assign counter = counter | plus: 1 %}
+			{% endfor %}
+		{% endif%}
+	 {% endfor %}
+	  
+	</li>
+	{% endif%}
+
 	{% if page.files %}
 	<li id="Files" class="content-tab">
 	  <table class="table">
@@ -119,7 +156,7 @@ hide_hero: true
 		<tbody>
 		{% for f in page.files %}
 		<tr>
-			<td style="text-align:center;"><a href="{{f.link}}">{{f.name}}&nbsp;</a></td><td style="text-align:left">{{f.description}}</td>
+			<td style="text-align:center;"><a href="{{f.link}}" download>{{f.name}}&nbsp;</a></td><td style="text-align:left">{{f.description}}</td>
 		</tr>
 		{% endfor %}
 		</tbody>
@@ -133,10 +170,34 @@ hide_hero: true
 </div> <!-- end tabs-content -->
 
 </div>
+
+<div class="column is-1-desktop is-1-tablet is-12-mobile">
+  <a href="{{site.url}}{{site.baseurl}}/originals/{{page.tutorial}}/{{page.datum}}_{{page.version}}/{{page.file}}">
+	<span class="button is-small" style="margin: 5px 10px 5px 10px ">
+	<span class="icon">
+		<i class="fas fa-expand"></i>
+	</span>
+	<span>Fullscreen</span>
+	</span>
+  </a>
+  <a href="{{site.url}}{{site.baseurl}}/originals/{{page.tutorial}}/{{page.datum}}_{{page.version}}/{{page.file}}" download>
+	<span class="button is-small" style="margin: 5px 10px 5px 10px ">
+	<span class="icon">
+		<i class="fas fa-download"></i>
+	</span>
+	<span>Download</span>
+	</span>
+  </a>
+
+</div>
+</div>
 </div>
 
-<div class="column is-2-desktop is-3-tablet is-0-mobile">
-  <a href="{{site.url}}{{site.baseurl}}"><img src="{{site.url}}{{site.baseurl}}/images/logos/symbol_light.png"></a>
+</div>
+
+<div class="column is-2-desktop is-3-tablet is-hidden-mobile" style="text-align:center">
+  <a href="{{site.url}}{{site.baseurl}}"><img src="{{site.url}}{{site.baseurl}}/images/logos/symbol_light.png" style="margin-bottom:30px;"></a>
+
 </div>
 
 </div>
