@@ -13,16 +13,16 @@ This website is born from a blog by Nussaibah R. Schoob and Adam T. Kocsis, whic
 
 Over the past 5 years of working with the practical education of coding examples, a number of issues regarding changes of software implementations surfaced, including major version changes in platforms and frameworks  
 
-After multiple iterations of implementation, the project is still in development, with a more explicit focus: to teach researchers about the possible implementation of quantatitave methods and help with the integration of the global community.
+After multiple iterations of implementation, the project is still in development, with a more explicit focus: to teach researchers about the possible implementation of quantitative methods and help with the integration of the global community.
 
 * * *
 
-## Phylosophy
+## Philosophy
 
-The purpose of *Evolv-ED* is to be an unbiased platform where the use of all data and software items can be demonstrated to showcase the general necessity of quantitative approches. *Evolv-ED* is firmly devoted to the idea of promoting **reproducibility** in the analysis of evolutionary data, which includes the proper archival of material to ensure their future accessibility and historic utility. 
+The purpose of *Evolv-ED* is to be an unbiased platform where the use of all data and software items can be demonstrated to showcase the general necessity of quantitative approaches. *Evolv-ED* is firmly devoted to the idea of promoting **reproducibility** in the analysis of evolutionary data, which includes the proper archival of material to ensure their future accessibility and historic utility. 
 
 * * *
 
-## Team
+## Implementation 
 
 Currently the project is managed by Adam Kocsis - people interested in contributing are more than welcome to get in touch. 
