@@ -237,3 +237,40 @@
   dependencies:
    - id: GPlates 
      version: 2.3 
+
+- title: "Plotting and calculating shelf area through the Phanerozoic with the Paleomap Paleocoastlines"
+  authors:
+    - Ádám T. Kocsis
+  tutorial: 2024-07-02_paleomap_coastlines_shelf
+  thumbnail: timeseries.png
+  description: This how-to guides through the download, plotting and calculation of shelf areas from coastline and margin reconstructions.
+  file: shelf_area.html
+  files:
+  - name: allTheMaps.pdf
+    link: ../../originals/2024-07-02_paleomap_coastlines_shelf/2024-07-02_1/allTheMaps.pdf
+    description: The pdf produced by the guide.. 
+  doi: 
+  datum: 2024-07-02
+  version: '1'
+  topic: Paleogeography 
+  dependencies:
+   - id: R 
+     version: 4.4.0 
+   - id: sf 
+     version: 1.0-16 
+   - id: via 
+     version: 0.2.0 
+   - id: chronosphere_R 
+     version: 0.6.1 
+   - id: lwgeom 
+     version: 0.2-14 
+   - id: GEOS 
+     version: 3.10.2 
+   - id: GDAL 
+     version: 3.4.1 
+   - id: PROJ 
+     version: 8.2.1 
+   - id: divDyn 
+     version: 0.8.2 
+  data:
+    - id: PaleoMAP

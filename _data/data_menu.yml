@@ -12,6 +12,8 @@
       items:
         - name: Modern Geography 
           link: /data/geography/
+        - name: Paleogeography 
+          link: /data/paleogeography/
         - name: Dummy item
         - name: Dummy item
         - name: Dummy item

@@ -86,3 +86,15 @@
   text: A curated database of planktonic foraminifera from the Cenozoic.
   citation:
   - "Fenton, I. S., Woodhouse, A., Aze, T., Lazarus, D., Renaudie, J., Dunhill, A. M., Young, J. R., & Saupe, E. E. (2021). Triton, a new species-level database of Cenozoic planktonic foraminiferal occurrences. Scientific Data, 8(1), 1–9. https://doi.org/10.1038/s41597-021-00942-7"
+
+- id: PALEOMAP 
+  abbreviation: PALEOMAP 
+  description: "The goal of the PALEOMAP Project is to illustrate the plate tectonic development of the ocean basins and continents, as well as the changing distribution of land and sea during the past 1100 million years"
+  long: The PALEOMAP Project 
+  logo: images/logos/paleomap.gif
+  website: http://www.scotese.com/
+  temporal_scope: Past 1100 Ma 
+  spatial_scope: Global
+  subcategory: paleogeography 
+  citation:
+  - ""

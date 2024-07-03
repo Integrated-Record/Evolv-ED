@@ -115,3 +115,65 @@
   category: Publishing
   primaryuse: "Creating documents with literate programming: tutorials, research logs and more. "
   website: https://quarto.org/
+
+- id: sf 
+  logo: images/logos/software/sf_logo.gif
+  longName: "Simple Features for R"
+  website: "https://r-spatial.github.io/sf/"
+  cran: "https://cran.r-project.org/package=sf"
+  extends: R
+  theme: Geography 
+  installation: 
+  citation:
+
+- id: via 
+  logo: images/logos/software/via_logo.png
+  longName: "Virtual Arrays"
+  website: "https://adamtkocsis.com/via/"
+  cran: "https://cran.r-project.org/package=via"
+  extends: R
+  theme: Programming 
+  installation: 
+  citation:
+
+- id: lwgeom 
+  longName: "Bindings to Selected 'liblwgeom' Functions for Simple Features"
+  website: "https://r-spatial.github.io/lwgeom/"
+  cran: "https://cran.r-project.org/package=lwgeom"
+  extends: R
+  theme: Geography 
+  installation: 
+  citation:
+
+- id: GEOS 
+  logo: images/logos/software/geos.png
+  website: "https://libgeos.org/"
+  extends: C/C++
+  theme: Geography 
+  installation: 
+  citation:
+  description: "GEOS is a C/C++ library for computational geometry with a focus on algorithms used in geographic information systems (GIS) software."
+  source: https://github.com/libgeos/geos
+  license: GPL 2.1
+
+- id: GDAL 
+  logo: images/logos/software/gdalicon.png
+  website: "https://gdal.org/"
+  extends: C/C++
+  theme: Geography 
+  installation: 
+  citation:
+  description: "GDAL is a translator library for raster and vector geospatial data formats."
+  source: https://github.com/OSGeo/gdal/
+  license: MIT 
+
+- id: PROJ 
+  logo: images/logos/software/proj.png
+  website: "https://proj.org/en/9.4/"
+  extends: C/C++
+  theme: Geography 
+  installation: 
+  citation:
+  description: "PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another."
+  source: https://github.com/OSGeo/PROJ
+  license: X / MIT 
