@@ -29,10 +29,10 @@ menubar: data_menu
 		<hr>
 		<div class="box">
 		<strong>Website</strong>: <a href="{{page.website}}">{{page.website}}</a> <br>
-		<strong>Organismal scope</strong>: {{page.organismal_scope}} <br>
-		<strong>Temporal scope</strong>: {{page.temporal_scope}} <br>
-		<strong>Spatial scope</strong>: {{page.spatial_scope}} <br>
-		<strong>Since</strong>: {{page.since}} <br>
+		{% if page.organismal_scope %}<strong>Organismal scope</strong>: {{page.organismal_scope}} <br> {% endif %}
+		{% if page.temporal_scope %}<strong>Temporal scope</strong>: {{page.temporal_scope}} <br> {% endif %}
+		{% if page.spatial_scope %}<strong>Spatial scope</strong>: {{page.spatial_scope}} <br> {% endif %}
+		{% if page.since %}<strong>Since</strong>: {{page.since}} <br> {% endif %}
 		</div>
 	</div>
 	<div class="column is-1-desktop">
@@ -47,7 +47,7 @@ menubar: data_menu
 </div>
 
 <div class="box">
-  <h2>Citation</h2>
+  <h2>Citation(s)</h2>
   <hr>
   <p>{{page.citation}}</p>
 </div>
