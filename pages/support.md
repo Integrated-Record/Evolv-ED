@@ -36,6 +36,13 @@ See the site [documentation]({{site.url}}{{site.baseurl}}/docs/) for the full de
 
 * * *
 
+
+## Development 
+
+Currently the project is managed by [Ádám T. Kocsis](). People interested in contributing are more than welcome to get in touch. 
+
+* * *
+
 <div class="grid is-col-min-5">
 <div class="cell support"> <a href="https://www.fau.eu/"><img src="{{site.url}}{{site.baseurl}}/images/logos/support/FAU.svg"></a> </div>
 <div class="cell support"> <a href="https://www.gzn.nat.fau.eu/"><img src="{{site.url}}{{site.baseurl}}/images/logos/support/GeoZentrum.svg"></a> </div>
