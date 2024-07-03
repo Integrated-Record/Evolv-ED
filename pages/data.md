@@ -52,7 +52,7 @@ About data in general... Lorem ipsum dolor sit amet, consectetur adipiscing elit
 </div>
 
 
-## Geological/Geographic
+## Geological/Geographic data
 
 * * *
 
@@ -61,13 +61,14 @@ About data in general... Lorem ipsum dolor sit amet, consectetur adipiscing elit
 {% assign geocateg = geocateg | sort: "long" %}
 
 
-<div class="tile is-ancestor" style="flex-wrap: wrap;">
+
+<div class="grid is-col-min-9">
 
 {% for categ in geocateg %}
 
-<div class="tile is-4" style="padding: 10px">
+<div class="cell">
+<a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
 <div class="card">
-  <a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
   <div class="card-image">
     <figure class="image is-4by3">
       <img
@@ -76,20 +77,18 @@ About data in general... Lorem ipsum dolor sit amet, consectetur adipiscing elit
       />
     </figure>
   </div>
-  </a>
-  <a href="{{site.url}}{{site.baseurl}}/data/{{categ.id}}.html">
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-5">{{categ.long}}</p>
+        <p class="title is-6">{{categ.long}}</p>
       </div>
     </div>
-    <div class="content">
+    <div class="content categdescription">
 	{{categ.basic}}
     </div>
   </div>
-  </a>
 </div>
+</a>
 
 </div>
 
