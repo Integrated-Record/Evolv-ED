@@ -1,0 +1,1751 @@
+<!doctype html>
+
+
+
+
+<html
+    dir="ltr"
+    lang="en"
+    class="  theme-light "
+>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link
+        rel="shortcut icon"
+        type="image/png"
+        
+            href="/favicon.png"
+        
+    >
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
+    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GDAL | Evolv-ED</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="GDAL" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="GDAL is a translator library for raster and vector geospatial data formats." />
+<meta property="og:description" content="GDAL is a translator library for raster and vector geospatial data formats." />
+<link rel="canonical" href="https://evolv-ed.net//software/gdal.html" />
+<meta property="og:url" content="https://evolv-ed.net//software/gdal.html" />
+<meta property="og:site_name" content="Evolv-ED" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GDAL" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"GDAL is a translator library for raster and vector geospatial data formats.","headline":"GDAL","url":"https://evolv-ed.net//software/gdal.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- head scripts -->
+</head>
+
+    <body>
+        
+        <nav
+    class="navbar is-primary "
+    x-data="{ openNav: false }"
+>
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+              <img src="https://evolv-ed.net//images/logos/logo_menu.png" style="margin-right:5px; ">
+			  Evolv-ED
+            </a>
+            <a
+                role="button"
+                class="navbar-burger burger"
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="navMenu"
+                :class="{ 'is-active': openNav }"
+                x-on:click="openNav = !openNav"
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu" :class="{ 'is-active': openNav }">
+            <div class="navbar-start">
+                
+                    
+                        
+                            <div class="navbar-item has-dropdown is-hoverable ">
+                                <a
+                                    href=""
+                                    class="navbar-link "
+                                >About</a>
+                                <div class="navbar-dropdown">
+                                    
+                                        <a
+                                            href="/about/overview/"
+                                            class="navbar-item "
+                                        >Overview</a>
+                                    
+                                        <a
+                                            href="/about/material/"
+                                            class="navbar-item "
+                                        >Material on Evolv-ED</a>
+                                    
+                                        <a
+                                            href="/about/support/"
+                                            class="navbar-item "
+                                        >Support</a>
+                                    
+                                </div>
+                            </div>
+                        
+                    
+                        
+                            <div class="navbar-item has-dropdown is-hoverable ">
+                                <a
+                                    href=""
+                                    class="navbar-link "
+                                >Articles</a>
+                                <div class="navbar-dropdown">
+                                    
+                                        <a
+                                            href="/articles/guides/"
+                                            class="navbar-item "
+                                        >Guides</a>
+                                    
+                                        <a
+                                            href="/articles/index/"
+                                            class="navbar-item "
+                                        >Index</a>
+                                    
+                                </div>
+                            </div>
+                        
+                    
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+        
+        
+
+        <section class="section">
+            <div class="container">
+                <div class="columns is-multiline">
+                    
+                        <div class="column is-3-desktop is-3-tablet">
+                            
+
+<aside class="menu">
+    
+        <p class="menu-label">Datasets</p>
+        <ul class="menu-list">
+            
+                <li>
+                    <a href="/data/#biological-data" class="">Bio Data</a>
+                    
+                        <ul>
+                            
+                                <li>
+                                    <a
+                                        href="/data/distribution/"
+                                        class=""
+                                    >Organism Distribution</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href="/data/traits/"
+                                        class=""
+                                    >Organism Traits</a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                <li>
+                    <a href="/data/#geologicalgeographic-data" class="">Geo Data</a>
+                    
+                        <ul>
+                            
+                                <li>
+                                    <a
+                                        href="/data/geography/"
+                                        class=""
+                                    >Modern Geography</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href="/data/paleogeography/"
+                                        class=""
+                                    >Paleogeography</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                                <li>
+                                    <a
+                                        href=""
+                                        class=""
+                                    >Dummy item</a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        </ul>
+    
+</aside>
+
+                        </div>
+                    
+                    <div class="column is-9">
+                        
+
+                        
+
+                        
+
+                        
+
+                        <!-- Figure out whether this is an R package or not -->
+
+
+<!-- Read in dependencies for the table -->
+<script src="https://evolv-ed.net//assets/js/jquery-3.7.0.js"></script>  <!--Add JQuery-->
+<script src="https://evolv-ed.net//assets/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://evolv-ed.net//assets/css/jquery.dataTables.min.css" />
+
+
+<nav class="breadcrumb" aria-label="breadcrumbs" style="padding-bottom:0.5rem">
+  <ul>
+    <li><a href="https://evolv-ed.net/">Evolv-ED</a></li>
+    <li><a href="https://evolv-ed.net//software/">Software</a></li>
+	
+    <li><a href="https://evolv-ed.net//software/c-c/">C/C++</a></li>
+	
+    <li class="is-active"><a href="#" aria-current="page">GDAL</a></li>
+  </ul>
+
+</nav>
+
+
+<div class="content">
+ 
+<div class="columns">
+	<div class="column is-7-desktop">
+	   
+		
+		<h1>GDAL</h1>
+		
+		<h4></h4>
+		<hr>
+		<div class="box">
+		<strong>Website</strong>: <a href="https://gdal.org/">https://gdal.org/</a> <br>
+		
+			<strong>License</strong>: MIT
+			<br>
+		
+		
+			<strong>Source</strong>: <a href="https://github.com/OSGeo/gdal/">https://github.com/OSGeo/gdal/</a>
+			<br>
+		
+		</div>
+	</div>
+	<div class="column is-1-desktop">
+	</div>
+	<div class="column is-4-desktop">
+		<a href="https://gdal.org/" ><img src="https://evolv-ed.net//images/logos/software/gdalicon.png" alt="Data logo"></a>
+	</div>
+</div>
+
+
+<div class="box softwarebox">
+  <h2>Description</h2>
+  <hr>
+  <p>GDAL is a translator library for raster and vector geospatial data formats.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- close content tag --->
+<!-- </div> force out from main content column --->
+<!-- </div> force out from columns of main content --->
+
+<div class="content">
+
+  <hr>
+  
+ <div class="columns">
+ <div class="column is-12">
+<div class="box" id="tutbox">
+  <h2 id="articles">Articles</h2>
+  <hr>
+	<!-- Get which are this resrouce: relevant-->
+	
+	
+
+  <table class="display" id="my-table">
+	<thead>
+		<tr><th>Title</th><th>Software</th></tr>
+	</thead>
+	<tbody>
+	  <!-- Go through all tutorials -->
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+	  
+		<!-- Filter relevant tutorials to this tutorial -->
+		
+		<!-- Sort these by date -->
+		
+		
+			
+			<!-- select the most up-to date -->
+			
+		  <tr>
+			<td style="text-align: left"> <a href="https://evolv-ed.net//articles/2024-07-02_paleomap_coastlines_shelf-1.html">Plotting and calculating shelf area through the Phanerozoic with the Paleomap Paleocoastlines </a></td>
+			<td>
+			  <div class="field is-grouped is-grouped-multiline">
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/r.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">R</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/sf.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">sf</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/via.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">via</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/chronosphere_r.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">chronosphere (R)</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/lwgeom.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">lwgeom</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/geos.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">GEOS</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/gdal.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">GDAL</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/proj.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">PROJ</span>
+					  
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  <div class="control">
+				<a href="https://evolv-ed.net//software/divdyn.html"><div class="tags">
+				  <!-- Search for the resource's long name -->
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+					  <!-- If there is a display name, show that, otherwise use ID -->
+					  
+					<span class="tag is-info">divDyn</span>
+					  
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+
+					<!-- If the resource is present in registry, showi it -->
+					
+
+				  
+				</div></a>
+			  </div>
+			  
+			  </div>
+			</td>
+		  </tr>
+		
+	  
+
+	</tbody>
+  </table>
+
+
+
+<!-- </div>  close column -->
+<!-- </div> close columns -->
+
+
+</div> <!-- close content -->
+</div>
+
+<!-- dummy containers -->
+<div>
+<div>
+
+<!-- Modification script for the data-table -->
+<script>
+new DataTable('#my-table');
+</script>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+            <footer class="footer">
+    <div class="container">
+        
+            <div class="columns is-multiline">
+                
+                    <div class="column has-text-centered">
+                        <div>
+                            <a href="/" class="link">Home</a>
+                        </div>
+                    </div>
+                
+                    <div class="column has-text-centered">
+                        <div>
+                            <a href="/imprint/" class="link">Imprint and Contact</a>
+                        </div>
+                    </div>
+                
+                    <div class="column has-text-centered">
+                        <div>
+                            <a href="/docs/" class="link">Docs</a>
+                        </div>
+                    </div>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        
+        <script src="/assets/js/app.js" type="text/javascript"></script><!-- footer scripts -->
+</body>
+</html>

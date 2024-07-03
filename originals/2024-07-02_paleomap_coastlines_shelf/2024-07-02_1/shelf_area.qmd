@@ -1,0 +1,361 @@
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,  
+	fig.width = 10, 
+	fig.height = 6
+)
+
+plotOrig <- plot
+plot <- function(...){
+	par(mar=c(0.25,0.25,0.25,0.25))
+	plotOrig(...)
+}
+
+```
+
+## Preparations
+
+This guide will go through the steps of deriving a time series of flooded shelf area through time using the PaleoMAP Paleocoastlines data product. You have to make sure that the relevant R packages are installed. These are:
+
+| Package        | Purpose                          |
+|----------------|----------------------------------|
+| `chronosphere` | Accessing original data          |
+| `sf`           | Vector GIS operations            |
+| `lwgeom`       | Area calculation (sf dependency) |
+| `via`          | Structuring the vector data      |
+| `divDyn`       | Geological timescale             |
+
+You can install the most-up-to date versions of these package with:
+
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages(c("chronosphere", "sf", "lwgeom", "via", "divDyn"))
+```
+
+Binary distributions of the `sf` package on Windows and MacOS include the GEOS, GDAL and PROJ libraries. On GNU/Linux operating systems these need to be installed separately so `sf` can function properly.
+
+
+## 1. The Paleomap Paleocoastlines data 
+
+This example will use data from the PaleoMAP project a set of reconstructions of the paleocoastlines. These reconstructions are based on the PaleoMAP PaleoDEMs - reconstructed Digital Elevation Models for the Phanerozoic [@scotese2018paleodem] - as well as on occurrences coming from the Paleobiology Database. The Paleocoastlines meant to express likely maximum transgressive surfaces for the intervals. These are discussed in detail in the paper describing the data [@kocsis2021paleocoastlines].
+
+### Downloading data using the chronosphere
+
+The Paleocoastlines data product was published on Zenodo, and it was added to the chronosphere for easier access and importing (alternatively, you can download the data directly from its Zenodo repository). This single line of computer code can be used to download and import that data into R: 
+
+```{r}
+# Download data from the chronosphere
+# set verbose = TRUE to see additional information
+pm <- chronosphere::fetch(src="paleomap", ser="paleocoastlines", ver="7", verbose=FALSE)
+```
+
+Besides `sf` that defines vector data classes, this item requires the `via` package. If these packages are not available, the `chronosphere::fetch()` call will throw an error. If they are available, then the packages will be attached automatically, when the item is loaded (hence the message, above).
+
+### Exploring the available data
+
+The `via` package organizes these data in an array-like structure for easier subsetting. 
+
+This is an `SfcArray`-class object, with 2 dimensions that correspond to the their ages and what these vector data represent:
+
+```{r}
+# show method: overiew
+pm
+```
+The available dimensions to this structure can also be accessed with the `dimnames()` function. The data are available for 81 time intervals through the Phanerozoic, and they represent either the approximate margins of the plates (`margin`, derived from the 1400m isobath of the PaleoDEMs [@scotese2018paleodem], and the reconstructed coastline (`coast`). The ages are in millions of years.
+
+### Strategy
+
+In order to make the calculations transparent, it is good practice to:
+
+1. Work out the shelf area calculation for one interval, and then  
+2. Repeat for all intervals, to get a time series.  
+
+## 2. Calculating flooded shelf area for a specific interval
+
+### Selecting an interval
+
+To prototype our analyses, let's select an interval first, for instance the Priabonian stage of the Eocene (~35 Ma)!
+
+The margins and the coastlines can be accessed with regular array syntax using character subscripts. Note that the ages have to be submitted as characters, otherwise you subset to the wrong interval! 
+
+```{r}
+# rows, then columns (35Ma)
+margin <- pm["35", "margin"]
+coast <- pm["35", "coast"]
+```
+
+The `SfcArray` objects get reduced to their elements: simple geometry collections from the `sf` package:
+
+```{r}
+coast
+```
+
+### Plotting the data
+
+These can be plotted like any other `sf` geometry objects. For instance, we can plot these objects simply with:
+
+```{r}
+# use add in the second call to overplot
+plot(margin, col="#87cef6", border=NA)
+plot(coast, col="#94391cAA", border=NA, add=TRUE)
+```
+
+::: {.callout-tip title="Hint for plotting multiple intervals"}
+
+For visualizing all the reconstructions, it is easiest to:  
+1. Open a `pdf()` device  
+2. Write a `for` loop for all the intervals (e.g. by 1:`nrow(pm)`)  
+3. Subset and plot the data  
+4. Close device with `dev.off()`  
+
+:::
+
+
+### Calculating the shelf vector
+
+The shelf area is the geometric difference of the margin (`margin`) and the coastline object (`coast`), which can be calculated with the `sf::st_difference` function. However, to do this calculation, the internals of the vector objects need to be rearranged. Both the `coast` and the `margin` objects (also in other intervals!) are composed of many single-part `POLYGON` items, which `sf::st_difference` would utilize in an elaborate way - trying to find pairwise differences - which is not what we want. 
+
+Therefore it is necessary to first transform the geometry collections so that they are a single, multipart polygon (`MULTIPOLYGON`) geometry. We can do this with the `sf::st_union` function. However, since these geometries were hand-drawn, they are not perfect (tiny loops and intersections might be present). The default method to do these calculations (which relies on the S2 spherical library) will not work for all intervals - but they can be done in longitude-latitude planar space. To use this, we first have to switch off the spherical calculations:
+
+```{r}
+sf::sf_use_s2(FALSE)
+```
+
+Now we can transform the objects with `st_union`:
+
+```{r}
+marginUnified <- sf::st_union(margin)
+coastUnified <- sf::st_union(coast)
+```
+
+::: {.callout-warning title="Warning!"}
+
+The messages here appear because we decided not to use S2. This is a good indication that we have to inspect the results!
+
+:::
+
+The simplest way to check the results is to re-plot the data - now using the unified geometries:
+
+```{r}
+# use add in the second call to overplot
+plot(marginUnified, col="#87cef6", border=NA)
+plot(coastUnified, col="#94391cAA", border=NA, add=TRUE)
+```
+
+You should not see any artifacts here. This is one more reason to plot the entire series of data (which we will do at a later point).
+
+Now that we have the unified geometries, their difference can be calculated:
+
+```{r}
+shelf <- sf::st_difference(marginUnified, coastUnified)
+```
+
+The message should make more sense now! Again, it is a good idea to plot the result. Let's draw the shelf outlines and the covered area over our existing map, with a bright, but transparent red color!
+
+```{r, eval=FALSE, echo=TRUE}
+plot(shelf, col="#ff000055", border="#ff0000", add=TRUE, lwd=0.5)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+# use add in the second call to overplot
+plot(marginUnified, col="#87cef6", border=NA)
+plot(coastUnified, col="#94391cAA", border=NA, add=TRUE)
+plot(shelf, col="#ff000055", border="#ff0000", add=TRUE, lwd=0.5)
+```
+
+If the calculations are correct, you should see a perfect match with the previous blue color.
+
+
+### Calculating the shelf area
+
+The only step that remains is the calcuation of the area. The `sf` package is very helpful in this regard, the `st_area` function returns the area of this total vector. If you consult the help page of `st_area` (`?st_area`) you can see that depending on which library you want to use, you can either use the default S2 implementation which sometimes does not work at all for geometries that are not perfectly clean. If you don't want to use S2 then you need to make sure that `lwgeom` is installed! Note that R will prompt you for this, if this is not installed.
+
+```{r}
+sf::st_area(shelf)
+```
+
+Returns the result of the area calculation in square meters.
+
+::: {.callout-tip title="Note"}
+You can check the results with S2 (toggling `sf_use_s2(TRUE)`), which will give you a slighty different result! 
+:::
+
+
+## 3. Repeating the calculation for all intervals 
+
+Now that we know how to calculate the shelf area for one time slice, let's calculate it for all of them!
+
+### Set up iterations
+
+First we need to set up a container to store our results. It is good practice to pre-define the structure for this container, and to include for it as many attributes as possible:
+
+
+```{r}
+# shelf area container
+shelfArea<- rep(NA, nrow(pm))
+names(shelfArea) <- rownames(pm)
+```
+
+It should be clear which value belongs with which time interval:
+
+```{r}
+shelfArea
+```
+
+To visually inspect the results of the geometry calculations, it is good idea to plot all the maps. This we can do by setting up a pdf. 
+
+```{r, eval=FALSE, echo=TRUE}
+pdf(file="allTheMaps.pdf", width=20, height=12)
+```
+
+We will populate this pdf all the maps!
+
+::: {.callout-tip title="Hint"}
+
+Use the `file` argument to provide path to the target file. Leaving it as is will create the pdf file in the current working directory (which you can see with `getwd()`).
+
+:::
+
+
+### Run iteration
+
+Once the preparations are done we just need to take the previous code and iterate it
+
+```{r, eval=TRUE, echo=FALSE}
+# iterate for all the intervals
+for(i in 1:nrow(pm)){
+	# use position index to subset, rather than names 
+	margin <- pm[i, "margin"]
+	coast <- pm[i, "coast"]
+	
+	# unify geometries
+	suppressMessages(marginUnified <- sf::st_union(margin))
+	suppressMessages(coastUnified <- sf::st_union(coast))
+	
+	# calculate shelf
+	suppressMessages(shelf <- sf::st_difference(marginUnified, coastUnified, quietly))
+	
+	# calculate shelf area - and store
+	suppressMessages(shelfArea[i] <- sf::st_area(shelf))
+}
+```
+
+```{r, eval=FALSE, echo=TRUE}
+# iterate for all the intervals
+for(i in 1:nrow(pm)){
+	# use position index to subset, rather than names 
+	margin <- pm[i, "margin"]
+	coast <- pm[i, "coast"]
+	
+	# unify geometries
+	marginUnified <- sf::st_union(margin)
+	coastUnified <- sf::st_union(coast)
+	
+	# calculate shelf
+	shelf <- sf::st_difference(marginUnified, coastUnified)
+	
+	# plot everything 
+	title <- paste0("Age: ", rownames(pm)[i], "Ma")
+	plotOrig(marginUnified, col="#87cef6", border=NA, main=title)
+	plotOrig(coastUnified, col="#94391cAA", border=NA, add=TRUE)
+	plotOrig(shelf, col="#ff000055", border="#ff0000", add=TRUE, lwd=0.5)
+
+	# calculate shelf area - and store
+	shelfArea[i] <- sf::st_area(shelf)
+}
+```
+
+If you did make a pdf, don't forget to switch off the device when the iteration is done!
+
+```{r, echo=TRUE, eval=FALSE}
+dev.off()
+```
+
+You can inspect the plotted pdf here:
+
+![](allTheMaps.pdf){width=800px height=400px}
+
+The results of the area calculations are in the `shelfArea` object:
+
+```{r}
+shelfArea
+```
+
+### Plotting the results
+
+You can already visualize the results by doing a scatterplot between the names of `shelfArea` (cast as `numeric`) and the calculated values. 
+
+```{r, echo=TRUE, eval=FALSE}
+plot(as.numeric(names(shelfArea)), shelfArea, 
+	ylab=expression("Shelf Area (m"^2*")"),
+	xlab="Age (Ma)")
+```
+
+```{r, echo=FALSE, eval=TRUE, fig.width=8, fight.height=6}
+plotOrig(as.numeric(names(shelfArea)), shelfArea, 
+	ylab=expression("Shelf Area (m"^2*")"),
+	xlab="Age (Ma)")
+```
+
+But this plot is a bit sub-par quality. For instance, for instance, the exact values are difficult to evaluate. It makes more sense to evaluate shelf area as a proportion to Earth's total surface area, which is approximately: 509 600 000 km^2. All we need to do this is to divide our values with this total area:
+
+```{r}
+# the proportion of area
+shelfProp <- shelfArea/509600000000000
+
+# should be between 0 and 1
+range(shelfProp)
+```
+
+Also, To put the ups and downs of the variable into geological context, we need to show the geological timescale, which can be visualized in a number of ways. One way to do it is to use a built-in timescale object of the `divDyn` package:
+
+```{r}
+data(stages, package="divDyn")
+str(stages)
+```
+
+This object, based on the GTS2020 timescale [@gradstein2020timescale], can be visualized with the `divDyn::tsplot` function, that we can use to draw a canvas:
+
+```{r, fig.width=8, fight.height=6}
+divDyn::tsplot(stages, shading="sys", xlim=4:95, ylim=c(0.05, 0.25),
+	boxes.col="systemCol", boxes="sys", 
+	ylab="Shelf Area (proportion of Earth's surface)"
+)
+```
+
+and then put on the variable with lines:
+
+```{r, eval=FALSE, echo=TRUE}
+lines(as.numeric(names(shelfProp)), shelfProp)
+```
+
+```{r, eval=TRUE, echo=FALSE, fig.width=8, fight.height=6}
+divDyn::tsplot(stages, shading="sys", xlim=4:95, ylim=c(0.05, 0.25),
+	boxes.col="systemCol", boxes="sys", 
+	ylab="Shelf Area (proportion of Earth's surface)"
+)
+lines(as.numeric(names(shelfProp)), shelfProp)
+```
+
+There it is, an estimate of shelf area through the Phanerozoic.
+
+### Using pre-calculated values
+
+Note that this result is directly available from the `chronosphere` as:
+
+```{r}
+# download data - delete verbose=FALSE to see additional information
+areas <- chronosphere::fetch(src="paleomap", ser="areas", ver="7", verbose=FALSE)
+
+# the total shelf area
+areas$shelf_sum
+```
+
+You can compare this to our result by inspecting the absolute difference of the two vectors. Note that there are some differences (calcualtion were done with the old `rgeos` package, and there is some rounding involved), but these are all extremely small (lower than 0.001):
+
+```{r}
+all(abs((areas$shelf_sum - shelfProp))<0.001)
+```
+
+
+## References
